@@ -19,28 +19,28 @@ void print_subset(const char items[], const bool* signature, size_t count){
 
     }
     if (emptySet)
-        cout << "}\n";
+        cout << "}" << endl;
     else
-        cout << " }\n";
+        cout << " }" << endl;
 }
 
-void DFS(const char items[], bool* signature, size_t count, size_t index){
+void findAndPrintSubsets(const char items[], bool* signature, size_t count, size_t index){
     if (index == count) {
         print_subset(items, signature, count);
         return;
     }
 
     signature[index] = true;
-    DFS(items, signature, count, index + 1);
+    findAndPrintSubsets(items, signature, count, index + 1);
 
     signature[index] = false;
-    DFS(items, signature, count, index + 1);
+    findAndPrintSubsets(items, signature, count, index + 1);
 }
 
-void findAndPrintSubsets(const char items[], size_t count){
+void generateSubsets(const char items[], size_t count){
     bool* signature = new bool[count];
 
-    DFS(items, signature, count, 0);
+    findAndPrintSubsets(items, signature, count, 0);
 
     delete[] signature;
 }
@@ -49,7 +49,7 @@ int main() {
     const char items[] = { 'A', 'B', 'C', 'D'};
     const size_t count = sizeof(items) / sizeof(items[0]);
 
-    findAndPrintSubsets(items, count);
+    generateSubsets(items, count);
 
     return 0;
 }
