@@ -1,0 +1,7 @@
+# ninja log v5
+8	664	1700231862269791119	CMakeFiles/6th_hw.dir/Parser.cpp.o	add328ae47151e6e
+8	598	1700231862202059257	CMakeFiles/6th_hw.dir/Expression.cpp.o	344f14cf5f4e9416
+523	555	1700231943720073269	6th_hw	3a73635bf986133d
+3	523	1700231943687143752	CMakeFiles/6th_hw.dir/main.cpp.o	5f320ecd8254351e
+7	611	1699712023657241421	CMakeFiles/6th_hw.dir/Expressions.cpp.o	fe4f7f9702c5ab54
+8	607	1700231862210947546	CMakeFiles/6th_hw.dir/Node.cpp.o	c807158e6d9da3cc

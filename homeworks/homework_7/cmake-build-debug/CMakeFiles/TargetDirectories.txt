@@ -1,0 +1,3 @@
+/Users/alexmultykh/Desktop/uni/second_year/1st_semester/HW/C++_hw/6th_hw/cmake-build-debug/CMakeFiles/6th_hw.dir
+/Users/alexmultykh/Desktop/uni/second_year/1st_semester/HW/C++_hw/6th_hw/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/alexmultykh/Desktop/uni/second_year/1st_semester/HW/C++_hw/6th_hw/cmake-build-debug/CMakeFiles/rebuild_cache.dir
