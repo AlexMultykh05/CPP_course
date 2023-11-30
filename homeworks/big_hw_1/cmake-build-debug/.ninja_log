@@ -1,0 +1,27 @@
+# ninja log v5
+3	602	1700754194405826263	CMakeFiles/bid_hw_1.dir/Users/alexmultykh/Desktop/uni/second_year/1st_semester/HW/C++_hw/7th_hw/Expression.cpp.o	25224575f5ee9f75
+2	653	1700760087385620173	CMakeFiles/bid_hw_1.dir/Neighbors.cpp.o	4f4a797b5626d780
+3	714	1700767728363628586	CMakeFiles/bid_hw_1.dir/Parser.cpp.o	2e484846218bab68
+3	613	1700764567448785498	CMakeFiles/bid_hw_1.dir/Reader.cpp.o	986c2efaa6b051c5
+7	172	1700766041242856406	CMakeFiles/bid_hw_1.dir/Result.cpp.o	e323c31c1756bbb0
+7	558	1700756678138466775	CMakeFiles/bid_hw_1.dir/Symbol.cpp.o	2eabb7a8971ade18
+523	555	1700231943720073269	6th_hw	3a73635bf986133d
+714	866	1700767728514313093	bid_hw_1	3996dbdb7651543a
+2	736	1700755099055621332	CMakeFiles/bid_hw_1.dir/Users/alexmultykh/Desktop/uni/second_year/1st_semester/HW/C++_hw/7th_hw/main.cpp.o	35765ea1975e7c06
+2	612	1700764996753274607	CMakeFiles/bid_hw_1.dir/Node.cpp.o	8171fe39cc6a7f12
+3	591	1700764567425704712	CMakeFiles/bid_hw_1.dir/Expression.cpp.o	fef54c3cc554463f
+2	594	1700767490596081258	CMakeFiles/bid_hw_1.dir/main.cpp.o	71d9410fb6ba358b
+0	59	1700768723022184160	build.ninja	af1667322be01507
+1	63	1700768723022184160	build.ninja	af1667322be01507
+3	664	1700768723688490296	CMakeFiles/bid_hw_1.dir/Expression.cpp.o	fef54c3cc554463f
+3	665	1700768723688817716	CMakeFiles/bid_hw_1.dir/Neighbors.cpp.o	4f4a797b5626d780
+2	687	1700768723713268751	CMakeFiles/bid_hw_1.dir/main.cpp.o	71d9410fb6ba358b
+3	712	1700768723739214426	CMakeFiles/bid_hw_1.dir/Reader.cpp.o	986c2efaa6b051c5
+2	733	1700768723760128010	CMakeFiles/bid_hw_1.dir/Node.cpp.o	8171fe39cc6a7f12
+3	767	1700768723794522394	CMakeFiles/bid_hw_1.dir/Parser.cpp.o	2e484846218bab68
+767	884	1700768723912208107	bid_hw_1	4d6c390726bcd91c
+6	572	1700769169284996280	CMakeFiles/bid_hw_1.dir/main.cpp.o	71d9410fb6ba358b
+572	686	1700769169399285252	bid_hw_1	4d6c390726bcd91c
+8	623	1700917036178155122	CMakeFiles/bid_hw_1.dir/Node.cpp.o	8171fe39cc6a7f12
+9	630	1700917036184807202	CMakeFiles/bid_hw_1.dir/Parser.cpp.o	2e484846218bab68
+630	754	1700917036310076706	bid_hw_1	4d6c390726bcd91c
