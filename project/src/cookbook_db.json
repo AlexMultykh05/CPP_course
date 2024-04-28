@@ -1,0 +1,64 @@
+[
+  {
+    "name_of_dish": "Chicken Carbonara",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": [
+      "spaghetti",
+      "chicken",
+      "bacon",
+      "garlic",
+      "eggs",
+      "heavy cream",
+      "Parmesan cheese",
+      "Fresh parsley (for garnish)"
+    ],
+    "recipe": [
+      "1. Cook spaghetti according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
+      "2. In a large skillet, cook chopped bacon over medium heat until crispy. Remove bacon from skillet and set aside on paper towels to drain excess grease.",
+      "3. In the same skillet, add chicken strips and cook until golden brown and cooked through. Add minced garlic and cook for an additional minute.",
+      "4. In a small bowl, whisk together eggs, heavy cream, and grated Parmesan cheese.",
+      "5. Add cooked spaghetti to the skillet with chicken and garlic. Pour the egg mixture over the spaghetti and toss quickly to coat the pasta evenly. If the sauce is too thick, add reserved pasta water a little at a time until desired consistency is reached.",
+      "6. Add crispy bacon to the skillet and toss to combine.",
+      "7. Season with salt and pepper to taste. Garnish with chopped parsley before serving."
+    ]
+  },
+  {
+    "name_of_dish": "Spaghetti Aglio e Olio",
+    "type": "Dinner",
+    "cooking_time": "20 minutes",
+    "ingredients": [
+      "spaghetti",
+      "garlic",
+      "olive oil",
+      "red pepper flakes",
+      "parsley"
+    ],
+    "recipe": [
+      "1. Cook spaghetti according to package instructions until al dente. Drain and set aside.",
+      "2. In a large skillet, heat olive oil over medium heat. Add minced garlic and cook until golden brown.",
+      "3. Add cooked spaghetti to the skillet and toss to coat in the garlic-infused oil.",
+      "4. Season with salt and red pepper flakes to taste. Garnish with chopped parsley before serving."
+    ]
+  },
+  {
+    "name_of_dish": "Caprese Salad",
+    "type": "Appetizer",
+    "cooking_time": "10 minutes",
+    "ingredients": [
+      "tomatoes",
+      "fresh mozzarella cheese",
+      "fresh basil leaves",
+      "balsamic vinegar",
+      "extra virgin olive oil",
+      "salt"
+    ],
+    "recipe": [
+      "1. Slice tomatoes and fresh mozzarella cheese into thick slices.",
+      "2. Arrange tomato and mozzarella slices on a serving plate, alternating them.",
+      "3. Tuck fresh basil leaves between the tomato and mozzarella slices.",
+      "4. Drizzle with balsamic vinegar and extra virgin olive oil.",
+      "5. Season with salt to taste. Serve immediately."
+    ]
+  }
+]
