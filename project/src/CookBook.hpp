@@ -42,6 +42,12 @@ public:
 
     void suggestDishes(std::ostream &os = std::cout) const;
 
+    static void storeCurrentIngredients(std::vector<std::string> &currentDishIngredients, std::istringstream &iss,
+                                 std::string &ingredient);
+
+    static void checkIfMatchIngredients(const std::vector<std::string> &inputIngredients, std::vector<std::string> &currentDishIngredients,
+                             std::vector<std::string> &dishBuffer, bool &printedDish);
+
     static void printRecipes(const std::vector<CookBook> &books, std::ostream &os = std::cout);
 
     void printDish(const std::vector<std::string> &inputIngredients);

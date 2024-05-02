@@ -1,7 +1,7 @@
 [
   {
-    "name_of_dish": "Chicken Carbonara",
-    "type": "Dinner",
+    "name_of_dish": "chicken carbonara",
+    "type": "dinner",
     "cooking_time": "30 minutes",
     "ingredients": [ "spaghetti", "chicken", "bacon", "garlic", "eggs", "heavy cream", "Parmesan cheese", "Fresh parsley (for garnish)"],
     "recipe": [
@@ -15,8 +15,8 @@
     ]
   },
   {
-    "name_of_dish": "Spaghetti Aglio e Olio",
-    "type": "Dinner",
+    "name_of_dish": "spaghetti aglio e olio",
+    "type": "dinner",
     "cooking_time": "20 minutes",
     "ingredients": [ "spaghetti", "garlic", "olive oil", "red pepper flakes", "parsley"],
     "recipe": [
@@ -27,8 +27,8 @@
     ]
   },
   {
-    "name_of_dish": "Caprese Salad",
-    "type": "Appetizer",
+    "name_of_dish": "caprese salad",
+    "type": "appetizer",
     "cooking_time": "10 minutes",
     "ingredients": [ "tomatoes", "fresh mozzarella cheese", "fresh basil leaves", "balsamic vinegar", "extra virgin olive oil", "salt"],
     "recipe": [

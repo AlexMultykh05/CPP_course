@@ -1,15 +1,32 @@
 #include <iostream>
 #include "CookBook.hpp"
 
-int main() {
-    std::vector<std::string> inputIngredients;
+
+std::vector<std::string> readIngredients() {
+    std::string line;
+    std::getline(std::cin, line);
+    std::vector<std::string> ingredients;
+    std::stringstream ss(line);
     std::string ingredient;
 
-    std::cout << "Enter 3 main ingredients: ";
-    for (int i = 0; i < 3; i++) {
-        std::cin >> ingredient;
-        inputIngredients.push_back(ingredient);
+    while (std::getline(ss, ingredient, ',')) {
+        // Remove leading and trailing spaces
+        ingredient.erase(ingredient.begin(), std::find_if(ingredient.begin(), ingredient.end(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }));
+        ingredient.erase(std::find_if(ingredient.rbegin(), ingredient.rend(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }).base(), ingredient.end());
+
+        ingredients.push_back(ingredient);
     }
+
+    return ingredients;
+}
+
+int main() {
+    std::cout << "Enter 3 main ingredients: ";
+    std::vector<std::string> inputIngredients = readIngredients();
 
     CookBook myCookBook("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
 

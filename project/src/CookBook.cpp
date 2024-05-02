@@ -27,6 +27,36 @@ void CookBook::printRecipes(const std::vector<CookBook> &books, std::ostream &os
 
 }
 
+void CookBook::storeCurrentIngredients(std::vector<std::string> &currentDishIngredients, std::istringstream &iss,
+                                       std::string &ingredient) {
+    while (std::getline(iss, ingredient, COMMA)) {
+        ingredient = ingredient.substr(2, ingredient.size() - 3);
+        currentDishIngredients.push_back(ingredient);
+    }
+}
+
+void CookBook::checkIfMatchIngredients(const std::vector<std::string> &inputIngredients,
+                                       std::vector<std::string> &currentDishIngredients,
+                                       std::vector<std::string> &dishBuffer, bool &printedDish) {
+    if (std::equal(inputIngredients.begin(), inputIngredients.begin() + 3, currentDishIngredients.begin())) {
+        if (!printedDish) {
+            for (auto &dishLine: dishBuffer) {
+                if (dishLine.find(OPEN_CURLY_BRACKET) != std::string::npos) {
+                    continue;
+                } else if (dishLine.find(CLOSED_CURLY_BRACKET) != std::string::npos) {
+                    break;
+                } else {
+                    parseLine(dishLine);
+                }
+            }
+            printedDish = true;
+        }
+    } else {
+        currentDishIngredients.clear();
+        dishBuffer.clear();
+    }
+}
+
 void CookBook::printDish(const std::vector<std::string> &inputIngredients) {
     std::istringstream f(content_);
     std::string line;
@@ -41,36 +71,21 @@ void CookBook::printDish(const std::vector<std::string> &inputIngredients) {
             ingredients = ingredients.substr(0, ingredients.size() - 2);
             std::istringstream iss(ingredients);
             std::string ingredient;
-            while (std::getline(iss, ingredient, COMMA)) {
-                ingredient = ingredient.substr(2, ingredient.size() - 3);
-                currentDishIngredients.push_back(ingredient);
-            }
-            if (std::equal(inputIngredients.begin(), inputIngredients.begin() + 3, currentDishIngredients.begin())) {
-                if (!printedDish) {
-                    for (auto &dishLine : dishBuffer) {
-                        if (dishLine.find(OPEN_CURLY_BRACKET) != std::string::npos) {
-                            continue;
-                        } else if (dishLine.find(CLOSED_CURLY_BRACKET) != std::string::npos) {
-                            break;
-                        } else {
-                            parseLine(dishLine);
-                        }
-                    }
-                    printedDish = true;
-                }
-            } else {
-                currentDishIngredients.clear();
-                dishBuffer.clear();
-            }
+
+            storeCurrentIngredients(currentDishIngredients, iss, ingredient);
+
+            checkIfMatchIngredients(inputIngredients, currentDishIngredients, dishBuffer, printedDish);
+
         }
         if (line.find(CLOSED_CURLY_BRACKET) != std::string::npos) {
             dishBuffer.clear();
+            currentDishIngredients.clear();
         }
     }
 }
 
 
-void CookBook::parseLine(std::string &line){
+void CookBook::parseLine(std::string &line) {
     if (line.find("name_of_dish") != std::string::npos) {
         std::string dishName = line.substr(line.find(": ") + 2);
         dishName = dishName.substr(1, dishName.size() - 3);
@@ -94,7 +109,3 @@ void CookBook::parseLine(std::string &line){
         }
     }
 }
-
-//void CookBook::read_json(std::vector<CookBook> &books, std::istream &is) {
-//
-//}
