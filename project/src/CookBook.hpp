@@ -7,6 +7,8 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 class CookBook {
 private:
@@ -14,14 +16,10 @@ private:
     std::string type_;
     unsigned short time_;
     std::vector<std::string> ingredients_;
-    std::vector<std::string> recipes_;
+    std::vector<std::string> recipe_;
 
 public:
-    CookBook(const std::string &name, const std::string &type, unsigned short time,
-             const std::vector<std::string> &ingredients, const std::vector<std::string> &recipe);
-
-    CookBook(std::string &&name, std::string &&type, unsigned short time,
-             std::vector<std::string> &&ingredients, std::vector<std::string> &&recipe);
+    CookBook(const std::string& filename);
 
     const std::string &name() const;
 
@@ -33,9 +31,9 @@ public:
 
     const std::vector<std::string> &recipe() const;
 
-    void print_json(std::ostream &os = std::cout) const;
+    void suggest_dishes(std::ostream &os = std::cout) const;
 
-    static void print_json(const std::vector<CookBook> &books, std::ostream &os = std::cout);
+    static void print_recipes(const std::vector<CookBook> &books, std::ostream &os = std::cout);
 
     static void read_json(std::vector<CookBook> &books, std::istream &is);
 
@@ -59,7 +57,7 @@ inline const std::vector<std::string> &CookBook::ingredients() const {
 }
 
 inline const std::vector<std::string> &CookBook::recipe() const {
-    return recipes_;
+    return recipe_;
 }
 
 
