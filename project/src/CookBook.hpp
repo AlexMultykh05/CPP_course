@@ -9,6 +9,13 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream>
+
+constexpr char OPEN_CURLY_BRACKET = '{';
+constexpr char CLOSED_CURLY_BRACKET = '}';
+constexpr char COMMA = ',';
+constexpr char OPEN_INGREDIENTS[] = ": [";
+constexpr char INGREDIENTS[] = "ingredients";
 
 class CookBook {
 private:
@@ -17,6 +24,8 @@ private:
     unsigned short time_;
     std::vector<std::string> ingredients_;
     std::vector<std::string> recipe_;
+
+    std::string content_;
 
 public:
     CookBook(const std::string& filename);
@@ -31,11 +40,14 @@ public:
 
     const std::vector<std::string> &recipe() const;
 
-    void suggest_dishes(std::ostream &os = std::cout) const;
+    void suggestDishes(std::ostream &os = std::cout) const;
 
-    static void print_recipes(const std::vector<CookBook> &books, std::ostream &os = std::cout);
+    static void printRecipes(const std::vector<CookBook> &books, std::ostream &os = std::cout);
 
-    static void read_json(std::vector<CookBook> &books, std::istream &is);
+    void printDish(const std::vector<std::string> &inputIngredients);
+
+    static void parseLine(std::string &line);
+//    static void read_json(std::vector<CookBook> &books, std::istream &is);
 
 };
 
