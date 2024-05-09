@@ -9,8 +9,7 @@ std::vector<std::string> readIngredients() {
     std::stringstream ss(line);
     std::string ingredient;
 
-    while (std::getline(ss, ingredient, ',')) {
-        // Remove leading and trailing spaces
+    while (std::getline(ss, ingredient, COMMA)) {
         ingredient.erase(ingredient.begin(), std::find_if(ingredient.begin(), ingredient.end(), [](unsigned char ch) {
             return !std::isspace(ch);
         }));
@@ -25,12 +24,12 @@ std::vector<std::string> readIngredients() {
 }
 
 int main() {
-    std::cout << "Enter 3 main ingredients: ";
+    std::cout << ENTER_INGREDIENTS;
     std::vector<std::string> inputIngredients = readIngredients();
 
     CookBook myCookBook("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
 
-    myCookBook.findDish(inputIngredients);
+    myCookBook.suggestDish(inputIngredients);
 
     return 0;
 }
