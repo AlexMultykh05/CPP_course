@@ -3,7 +3,37 @@
     "name_of_dish": "chicken carbonara",
     "type": "dinner",
     "cooking_time": "30 minutes",
-    "ingredients": [ "spaghetti", "chicken", "bacon", "garlic", "eggs", "heavy cream", "Parmesan cheese", "Fresh parsley (for garnish)"],
+    "ingredients": [ "spaghetti", "chicken", "bacon", "garlic", "eggs", "heavy cream", "parmesan", "parsley"],
+    "recipe": [
+      "1. Cook spaghetti according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
+      "2. In a large skillet, cook chopped bacon over medium heat until crispy. Remove bacon from skillet and set aside on paper towels to drain excess grease.",
+      "3. In the same skillet, add chicken strips and cook until golden brown and cooked through. Add minced garlic and cook for an additional minute.",
+      "4. In a small bowl, whisk together eggs, heavy cream, and grated Parmesan cheese.",
+      "5. Add cooked spaghetti to the skillet with chicken and garlic. Pour the egg mixture over the spaghetti and toss quickly to coat the pasta evenly. If the sauce is too thick, add reserved pasta water a little at a time until desired consistency is reached.",
+      "6. Add crispy bacon to the skillet and toss to combine.",
+      "7. Season with salt and pepper to taste. Garnish with chopped parsley before serving."
+    ]
+  },
+  {
+    "name_of_dish": "chicken asdf",
+    "type": "dinner",
+    "cooking_time": "20 minutes",
+    "ingredients": [ "spaghetti", "chicken", "bacon", "garlic", "parsley"],
+    "recipe": [
+      "1. Cook spaghetti according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
+      "2. In a large skillet, cook chopped bacon over medium heat until crispy. Remove bacon from skillet and set aside on paper towels to drain excess grease.",
+      "3. In the same skillet, add chicken strips and cook until golden brown and cooked through. Add minced garlic and cook for an additional minute.",
+      "4. In a small bowl, whisk together eggs, heavy cream, and grated Parmesan cheese.",
+      "5. Add cooked spaghetti to the skillet with chicken and garlic. Pour the egg mixture over the spaghetti and toss quickly to coat the pasta evenly. If the sauce is too thick, add reserved pasta water a little at a time until desired consistency is reached.",
+      "6. Add crispy bacon to the skillet and toss to combine.",
+      "7. Season with salt and pepper to taste. Garnish with chopped parsley before serving."
+    ]
+  },
+  {
+    "name_of_dish": "chicken fsdfdw",
+    "type": "dinner",
+    "cooking_time": "25 minutes",
+    "ingredients": [ "spaghetti", "chicken", "bacon", "parmesan", "parsley"],
     "recipe": [
       "1. Cook spaghetti according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
       "2. In a large skillet, cook chopped bacon over medium heat until crispy. Remove bacon from skillet and set aside on paper towels to drain excess grease.",
@@ -18,7 +48,7 @@
     "name_of_dish": "spaghetti aglio e olio",
     "type": "dinner",
     "cooking_time": "20 minutes",
-    "ingredients": [ "spaghetti", "garlic", "olive oil", "red pepper flakes", "parsley"],
+    "ingredients": [ "spaghetti", "garlic", "olive oil", "red pepper", "parsley"],
     "recipe": [
       "1. Cook spaghetti according to package instructions until al dente. Drain and set aside.",
       "2. In a large skillet, heat olive oil over medium heat. Add minced garlic and cook until golden brown.",
@@ -30,13 +60,459 @@
     "name_of_dish": "caprese salad",
     "type": "appetizer",
     "cooking_time": "10 minutes",
-    "ingredients": [ "tomatoes", "fresh mozzarella cheese", "fresh basil leaves", "balsamic vinegar", "extra virgin olive oil", "salt"],
+    "ingredients": [ "tomatoes", "fresh mozzarella cheese", "basil", "balsamic vinegar", "olive oil", "salt"],
     "recipe": [
       "1. Slice tomatoes and fresh mozzarella cheese into thick slices.",
       "2. Arrange tomato and mozzarella slices on a serving plate, alternating them.",
       "3. Tuck fresh basil leaves between the tomato and mozzarella slices.",
       "4. Drizzle with balsamic vinegar and extra virgin olive oil.",
       "5. Season with salt to taste. Serve immediately."
+    ]
+  },
+  {
+    "name_of_dish": "Grilled Cheese Sandwich",
+    "type": "Lunch",
+    "cooking_time": "10 minutes",
+    "ingredients": [ "bread", "cheddar", "butter"],
+    "recipe": [
+      "1. Heat a skillet over medium heat.",
+      "2. Butter one side of each slice of bread.",
+      "3. Place one slice of bread, butter side down, on the skillet.",
+      "4. Add slices of cheddar on top of the bread.",
+      "5. Place the second slice of bread on top, butter side up.",
+      "6. Cook until the bread is golden brown and crispy, and the cheese is melted.",
+      "7. Flip the sandwich and cook the other side until golden brown.",
+      "8. Remove from the skillet and let it cool for a minute before serving."
+    ]
+  },
+  {
+    "name_of_dish": "Scrambled Eggs",
+    "type": "Breakfast",
+    "cooking_time": "5 minutes",
+    "ingredients": [ "eggs", "butter", "salt", "pepper"],
+    "recipe": [
+      "1. Crack the eggs into a bowl and whisk them until well combined.",
+      "2. Heat a skillet over medium heat and add butter.",
+      "3. Pour the beaten eggs into the skillet and let them cook for a few seconds.",
+      "4. Use a spatula to stir the eggs gently, breaking them into small curds as they cook.",
+      "5. Season with salt and pepper to taste.",
+      "6. Continue to cook until the eggs are just set but still creamy.",
+      "7. Remove from heat and serve immediately."
+    ]
+  },
+  {
+    "name_of_dish": "Classic Tomato Soup",
+    "type": "Lunch",
+    "cooking_time": "25 minutes",
+    "ingredients": [ "tomatoes", "onion", "garlic", "vegetable broth", "cream", "butter", "salt", "pepper"],
+    "recipe": [
+      "1. Heat butter in a large pot over medium heat.",
+      "2. Add chopped onion and garlic, and cook until softened.",
+      "3. Add chopped tomatoes and cook until they start to break down.",
+      "4. Pour in vegetable broth and bring to a simmer.",
+      "5. Use an immersion blender to blend the soup until smooth.",
+      "6. Stir in cream and season with salt and pepper to taste.",
+      "7. Simmer for a few more minutes until heated through.",
+      "8. Serve hot with a drizzle of cream and fresh herbs."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Stir Fry",
+    "type": "Dinner",
+    "cooking_time": "20 minutes",
+    "ingredients": [ "chicken", "bell peppers", "onion", "garlic", "soy sauce", "sesame oil", "cornstarch", "rice"],
+    "recipe": [
+      "1. Cut chicken into thin strips and marinate with soy sauce and cornstarch.",
+      "2. Heat sesame oil in a large skillet or wok over high heat.",
+      "3. Add minced garlic and sliced onion, and stir-fry until fragrant.",
+      "4. Add marinated chicken and cook until browned and cooked through.",
+      "5. Add sliced bell peppers and continue to stir-fry until they are tender-crisp.",
+      "6. Season with additional soy sauce or salt to taste.",
+      "7. Serve hot over cooked rice."
+    ]
+  },
+  {
+    "name_of_dish": "Homemade Pizza",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": [ "dough", "tomato sauce", "mozzarella", "toppings of your choice (e.g., pepperoni, mushrooms, bell peppers)"],
+    "recipe": [
+      "1. Preheat your oven to the highest temperature.",
+      "2. Roll out the dough on a lightly floured surface to your desired thickness.",
+      "3. Transfer the dough to a baking sheet or pizza stone.",
+      "4. Spread tomato sauce evenly over the dough, leaving a border around the edges.",
+      "5. Sprinkle grated mozzarella over the sauce.",
+      "6. Add your favorite toppings on top of the cheese.",
+      "7. Bake in the preheated oven for about 10-15 minutes, or until the crust is golden brown and the cheese is bubbly and melted.",
+      "8. Remove from the oven, slice, and serve hot."
+    ]
+  },
+  {
+    "name_of_dish": "Pasta with Tomato Sauce",
+    "type": "Dinner",
+    "cooking_time": "20 minutes",
+    "ingredients": [ "pasta", "tomato sauce", "onion", "garlic", "olive oil", "basil", "salt", "pepper"],
+    "recipe": [
+      "1. Cook pasta according to package instructions until al dente. Drain and set aside.",
+      "2. Heat olive oil in a large skillet over medium heat.",
+      "3. Add chopped onion and minced garlic, and cook until softened.",
+      "4. Pour in tomato sauce and bring to a simmer.",
+      "5. Season with salt and pepper to taste.",
+      "6. Add cooked pasta to the skillet and toss to coat in the sauce.",
+      "7. Stir in fresh basil leaves and cook for a few more minutes until heated through.",
+      "8. Serve hot with grated cheese on top."
+    ]
+  },
+  {
+    "name_of_dish": "Baked Salmon",
+    "type": "Dinner",
+    "cooking_time": "25 minutes",
+    "ingredients": [ "salmon", "lemon", "olive oil", "garlic", "salt", "pepper", "dill"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. Place salmon fillets on a baking sheet lined with parchment paper.",
+      "3. Drizzle olive oil over the salmon fillets.",
+      "4. Squeeze lemon juice over the salmon.",
+      "5. Season with minced garlic, salt, pepper, and chopped dill.",
+      "6. Bake in the preheated oven for about 15-20 minutes, or until the salmon is cooked through and flakes easily with a fork.",
+      "7. Remove from the oven and serve hot with additional lemon wedges."
+    ]
+  },
+  {
+    "name_of_dish": "Vegetable Stir Fry",
+    "type": "Dinner",
+    "cooking_time": "15 minutes",
+    "ingredients": [ "broccoli", "carrots", "bell peppers", "garlic", "ginger", "soy sauce", "sesame oil", "rice"],
+    "recipe": [
+      "1. Cut vegetables into bite-sized pieces.",
+      "2. Heat sesame oil in a large skillet or wok over high heat.",
+      "3. Add minced garlic and grated ginger, and stir-fry until fragrant.",
+      "4. Add the vegetables to the skillet and stir-fry until they are tender-crisp.",
+      "5. Season with soy sauce or salt to taste.",
+      "6. Serve hot over cooked rice."
+    ]
+  },
+  {
+    "name_of_dish": "Homemade Mac and Cheese",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": [ "macaroni", "cheddar", "butter", "flour", "milk", "salt", "pepper", "breadcrumbs"],
+    "recipe": [
+      "1. Cook macaroni according to package instructions until al dente. Drain and set aside.",
+      "2. In a saucepan, melt butter over medium heat.",
+      "3. Stir in flour to make a roux, and cook for a few minutes until golden brown.",
+      "4. Gradually whisk in milk until smooth and thickened.",
+      "5. Add grated cheddar and stir until melted and smooth.",
+      "6. Season with salt and pepper to taste.",
+      "7. Stir cooked macaroni into the cheese sauce until well coated.",
+      "8. Transfer the mac and cheese to a baking dish and sprinkle breadcrumbs on top.",
+      "9. Bake in a preheated oven at 375°F (190°C) for about 15 minutes, or until golden and bubbly.",
+      "10. Serve hot and enjoy!"
+    ]
+  },
+  {
+    "name_of_dish": "Vegetable Soup",
+    "type": "Lunch",
+    "cooking_time": "30 minutes",
+    "ingredients": [ "carrots", "celery", "potatoes", "onion", "garlic", "vegetable broth", "olive oil", "salt", "pepper", "bay leaf"],
+    "recipe": [
+      "1. Heat olive oil in a large pot over medium heat.",
+      "2. Add chopped onion and minced garlic, and cook until softened.",
+      "3. Add chopped vegetables to the pot and cook for a few minutes until they start to soften.",
+      "4. Pour in vegetable broth and add a bay leaf.",
+      "5. Bring the soup to a simmer and cook until the vegetables are tender.",
+      "6. Season with salt and pepper to taste.",
+      "7. Serve hot with crusty bread."
+    ]
+  },
+  {
+    "name_of_dish": "Spaghetti Bolognese",
+    "type": "Dinner",
+    "cooking_time": "40 minutes",
+    "ingredients": [ "spaghetti", "ground beef", "onion", "garlic", "tomato sauce", "olive oil", "salt", "pepper", "basil"],
+    "recipe": [
+      "1. Cook spaghetti according to package instructions until al dente. Drain and set aside.",
+      "2. In a large skillet, heat olive oil over medium heat. Add chopped onion and minced garlic, and cook until softened.",
+      "3. Add ground beef to the skillet and cook until browned and cooked through.",
+      "4. Pour in tomato sauce and season with salt, pepper, and chopped basil.",
+      "5. Simmer the sauce for about 20-30 minutes, stirring occasionally.",
+      "6. Serve hot over cooked spaghetti."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Alfredo",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": [ "fettuccine", "chicken", "butter", "garlic", "heavy cream", "parmesan", "parsley"],
+    "recipe": [
+      "1. Cook fettuccine according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
+      "2. In a large skillet, melt butter over medium heat. Add minced garlic and cook until fragrant.",
+      "3. Add chicken strips to the skillet and cook until golden brown and cooked through.",
+      "4. Pour in heavy cream and bring to a simmer.",
+      "5. Gradually stir in grated Parmesan cheese until the sauce is smooth and creamy.",
+      "6. Add cooked fettuccine to the skillet and toss to coat in the Alfredo sauce. If the sauce is too thick, add reserved pasta water a little at a time until desired consistency is reached.",
+      "7. Season with salt and pepper to taste. Garnish with chopped parsley before serving."
+    ]
+  },
+  {
+    "name_of_dish": "Beef Tacos",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": [ "beef", "seasoning", "taco shells", "lettuce", "tomato", "cheddar", "sour cream", "salsa"],
+    "recipe": [
+      "1. In a skillet, cook ground beef over medium heat until browned. Drain excess fat.",
+      "2. Stir in taco seasoning and cook according to package instructions.",
+      "3. Heat taco shells according to package instructions.",
+      "4. Fill each taco shell with a spoonful of seasoned ground beef.",
+      "5. Top with shredded lettuce, diced tomato, grated cheddar cheese, sour cream, and salsa.",
+      "6. Serve immediately and enjoy!"
+    ]
+  },
+  {
+    "name_of_dish": "Caesar Salad",
+    "type": "Appetizer",
+    "cooking_time": "15 minutes",
+    "ingredients": [ "romaine lettuce", "croutons", "parmesan cheese", "Caesar dressing"],
+    "recipe": [
+      "1. Wash and chop romaine lettuce into bite-sized pieces.",
+      "2. In a large bowl, toss together romaine lettuce, croutons, and grated Parmesan cheese.",
+      "3. Drizzle Caesar dressing over the salad and toss to coat evenly.",
+      "4. Serve immediately as an appetizer or side dish."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Caesar Wrap",
+    "type": "Lunch",
+    "cooking_time": "15 minutes",
+    "ingredients": [ "flour tortillas", "grilled chicken", "romaine lettuce", "Caesar dressing", "parmesan cheese"],
+    "recipe": [
+      "1. Lay a flour tortilla flat on a clean surface.",
+      "2. Arrange grilled chicken slices in the center of the tortilla.",
+      "3. Top with chopped romaine lettuce, grated Parmesan cheese, and drizzle with Caesar dressing.",
+      "4. Fold in the sides of the tortilla, then roll it up tightly from the bottom to form a wrap.",
+      "5. Slice the wrap in half diagonally and serve immediately."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Noodle Soup",
+    "type": "Lunch",
+    "cooking_time": "40 minutes",
+    "ingredients": [ "chicken breasts", "chicken broth", "carrots", "celery", "onion", "garlic", "noodles", "olive oil", "salt", "pepper", "parsley"],
+    "recipe": [
+      "1. Heat olive oil in a large pot over medium heat.",
+      "2. Add chopped onion, celery, and carrots, and cook until softened.",
+      "3. Add minced garlic and cook for an additional minute.",
+      "4. Pour in chicken broth and bring to a simmer.",
+      "5. Add chicken breasts to the pot and simmer until cooked through.",
+      "6. Remove chicken from the pot and shred into bite-sized pieces.",
+      "7. Return shredded chicken to the pot and add egg noodles. Cook until noodles are tender.",
+      "8. Season with salt, pepper, and chopped parsley to taste.",
+      "9. Serve hot and enjoy!"
+    ]
+  },
+  {
+    "name_of_dish": "Beef Stew",
+    "type": "Dinner",
+    "cooking_time": "2 hours",
+    "ingredients": [ "beef", "potatoes", "carrots", "onion", "garlic", "beef broth", "tomato paste", "bay leaf", "thyme", "flour", "olive oil", "salt", "pepper"],
+    "recipe": [
+      "1. In a large pot, heat olive oil over medium heat.",
+      "2. Season beef stew meat with salt, pepper, and flour.",
+      "3. Add the meat to the pot and cook until browned on all sides.",
+      "4. Add chopped onion and minced garlic to the pot, and cook until softened.",
+      "5. Pour in beef broth and add tomato paste, bay leaf, and thyme.",
+      "6. Bring the stew to a simmer, then reduce heat to low and cover. Let it cook for about 1.5 to 2 hours, or until the meat is tender.",
+      "7. Add chopped potatoes and carrots to the pot and continue to cook until the vegetables are tender.",
+      "8. Season with salt and pepper to taste.",
+      "9. Serve hot and enjoy!"
+    ]
+  },
+  {
+    "name_of_dish": "Spinach and Feta Stuffed Chicken Breast",
+    "type": "Dinner",
+    "cooking_time": "35 minutes",
+    "ingredients": [ "chicken", "spinach", "feta", "garlic", "olive oil", "salt", "pepper", "paprika"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. In a skillet, heat olive oil over medium heat. Add minced garlic and cook until fragrant.",
+      "3. Add fresh spinach to the skillet and cook until wilted. Remove from heat and let it cool slightly.",
+      "4. Once cooled, mix spinach with crumbled feta cheese, salt, pepper, and paprika.",
+      "5. Make a slit in each chicken breast to create a pocket. Stuff each pocket with the spinach and feta mixture.",
+      "6. Season the outside of the chicken breasts with salt, pepper, and paprika.",
+      "7. Place stuffed chicken breasts in a baking dish and drizzle with olive oil.",
+      "8. Bake in the preheated oven for about 25-30 minutes, or until the chicken is cooked through and juices run clear.",
+      "9. Serve hot and enjoy!"
+    ]
+  },
+  {
+    "name_of_dish": "Honey Garlic Shrimp",
+    "type": "Dinner",
+    "cooking_time": "15 minutes",
+    "ingredients": [ "shrimp", "honey", "soy sauce", "garlic", "ginger", "sesame oil", "green onions", "sesame seeds"],
+    "recipe": [
+      "1. In a bowl, whisk together honey, soy sauce, minced garlic, grated ginger, and sesame oil to make the sauce.",
+      "2. Heat a skillet over medium-high heat. Add shrimp and cook until pink and opaque.",
+      "3. Pour the sauce over the cooked shrimp and toss to coat evenly.",
+      "4. Cook for another 1-2 minutes, until the sauce thickens slightly.",
+      "5. Garnish with sliced green onions and sesame seeds.",
+      "6. Serve hot over rice or noodles."
+    ]
+  },
+  {
+    "name_of_dish": "Mushroom Risotto",
+    "type": "Dinner",
+    "cooking_time": "35 minutes",
+    "ingredients": [ "rice", "mushrooms", "onion", "garlic", "vegetable broth", "white wine", "butter", "parmesan cheese", "olive oil", "salt", "pepper", "parsley"],
+    "recipe": [
+      "1. In a saucepan, heat olive oil over medium heat. Add chopped onion and minced garlic, and cook until softened.",
+      "2. Add sliced mushrooms to the saucepan and cook until they release their moisture and become golden brown.",
+      "3. Stir in arborio rice and cook for a few minutes until translucent.",
+      "4. Pour in white wine and cook until it is absorbed by the rice.",
+      "5. Begin adding vegetable broth, one ladle at a time, stirring constantly and allowing each addition to be absorbed before adding more.",
+      "6. Continue this process until the rice is creamy and cooked to al dente, about 20-25 minutes.",
+      "7. Stir in butter and grated Parmesan cheese until melted and creamy.",
+      "8. Season with salt and pepper to taste.",
+      "9. Garnish with chopped parsley before serving."
+    ]
+  },
+  {
+    "name_of_dish": "Lemon Garlic Roast Chicken",
+    "type": "Dinner",
+    "cooking_time": "1 hour 30 minutes",
+    "ingredients": [ "chicken", "lemon", "garlic", "rosemary", "thyme", "butter", "olive oil", "salt", "pepper"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. Rinse the whole chicken under cold water and pat dry with paper towels.",
+      "3. Rub the chicken with olive oil, then season generously with salt and pepper, both inside and out.",
+      "4. Cut a lemon in half and place it inside the cavity of the chicken, along with a few cloves of garlic, rosemary, and thyme.",
+      "5. Tie the legs together with kitchen twine to help the chicken cook evenly.",
+      "6. Place the chicken breast side up in a roasting pan. Rub the skin with softened butter.",
+      "7. Roast the chicken in the preheated oven for about 1 hour and 30 minutes, or until the internal temperature reaches 165°F (75°C) and the juices run clear.",
+      "8. Let the chicken rest for 10-15 minutes before carving.",
+      "9. Serve hot and enjoy!"
+    ]
+  },
+  {
+    "name_of_dish": "Pesto Pasta",
+    "type": "Dinner",
+    "cooking_time": "20 minutes",
+    "ingredients": [ "pasta", "basil pesto", "cherry tomatoes", "parmesan", "olive oil", "salt", "pepper", "pine nuts"],
+    "recipe": [
+      "1. Cook pasta according to package instructions until al dente. Drain and set aside.",
+      "2. In a large skillet, heat olive oil over medium heat. Add halved cherry tomatoes and cook until softened.",
+      "3. Add cooked pasta to the skillet and toss to coat in the tomatoes and olive oil.",
+      "4. Stir in basil pesto until the pasta is evenly coated.",
+      "5. Season with salt and pepper to taste.",
+      "6. Serve hot with grated Parmesan cheese and toasted pine nuts on top."
+    ]
+  },
+  {
+    "name_of_dish": "Chocolate Chip Cookies",
+    "type": "Dessert",
+    "cooking_time": "12 minutes",
+    "ingredients": [ "flour", "butter", "brown sugar", "white sugar", "eggs", "vanilla extract", "soda", "salt", "chocolate chips"],
+    "recipe": [
+      "1. Preheat your oven to 350°F (175°C).",
+      "2. In a mixing bowl, cream together softened butter, brown sugar, and white sugar until light and fluffy.",
+      "3. Beat in eggs, one at a time, then stir in vanilla extract.",
+      "4. In a separate bowl, combine all-purpose flour, baking soda, and salt. Gradually add the dry ingredients to the wet ingredients and mix until well combined.",
+      "5. Fold in chocolate chips until evenly distributed throughout the dough.",
+      "6. Drop spoonfuls of cookie dough onto a baking sheet lined with parchment paper.",
+      "7. Bake in the preheated oven for about 10-12 minutes, or until the edges are golden brown.",
+      "8. Remove from the oven and let the cookies cool on the baking sheet for a few minutes before transferring them to a wire rack to cool completely."
+    ]
+  },
+  {
+    "name_of_dish": "Banana Bread",
+    "type": "Dessert",
+    "cooking_time": "1 hour",
+    "ingredients": [ "bananas", "flour", "butter", "sugar", "eggs", "vanilla extract", "baking soda", "salt", "walnuts"],
+    "recipe": [
+      "1. Preheat your oven to 350°F (175°C).",
+      "2. In a mixing bowl, mash ripe bananas with a fork until smooth.",
+      "3. Add softened butter, brown sugar, eggs, and vanilla extract to the mashed bananas, and mix until well combined.",
+      "4. In a separate bowl, combine all-purpose flour, baking soda, and salt. Gradually add the dry ingredients to the wet ingredients and mix until just combined.",
+      "5. Fold in chopped walnuts until evenly distributed throughout the batter.",
+      "6. Pour the batter into a greased loaf pan.",
+      "7. Bake in the preheated oven for about 50-60 minutes, or until a toothpick inserted into the center comes out clean.",
+      "8. Remove from the oven and let the banana bread cool in the pan for 10 minutes before transferring it to a wire rack to cool completely."
+    ]
+  },
+  {
+    "name_of_dish": "Ratatouille",
+    "type": "Dinner",
+    "cooking_time": "45 minutes",
+    "ingredients": [ "eggplant", "zucchini", "yellow squash", "bell peppers", "onion", "garlic", "tomatoes", "olive oil", "basil", "thyme", "oregano", "salt", "pepper"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. Slice eggplant, zucchini, yellow squash, and bell peppers into rounds or chunks.",
+      "3. Chop onion and mince garlic.",
+      "4. In a baking dish, arrange sliced vegetables in layers, alternating between eggplant, zucchini, yellow squash, and bell peppers. Sprinkle chopped onion and minced garlic between the layers.",
+      "5. Drizzle olive oil over the vegetables and season with salt, pepper, basil, thyme, and oregano.",
+      "6. Cover the baking dish with foil and bake in the preheated oven for about 30-35 minutes, or until the vegetables are tender.",
+      "7. Remove from the oven and let it cool slightly before serving.",
+      "8. Garnish with fresh basil leaves and serve hot."
+    ]
+  },
+  {
+    "name_of_dish": "Guacamole",
+    "type": "Appetizer",
+    "cooking_time": "10 minutes",
+    "ingredients": [ "avocado", "lime", "tomato", "onion", "jalapeno", "cilantro", "garlic", "salt", "pepper"],
+    "recipe": [
+      "1. Cut avocados in half, remove the pits, and scoop the flesh into a bowl.",
+      "2. Mash the avocado with a fork until smooth or slightly chunky, depending on your preference.",
+      "3. Dice tomato, onion, jalapeno, and mince garlic. Add them to the mashed avocado.",
+      "4. Squeeze lime juice over the mixture and season with salt, pepper, and chopped cilantro.",
+      "5. Stir until all ingredients are well combined.",
+      "6. Taste and adjust seasoning if necessary.",
+      "7. Serve immediately with tortilla chips or as a topping for tacos, nachos, or burritos."
+    ]
+  },
+  {
+    "name_of_dish": "French Toast",
+    "type": "Breakfast",
+    "cooking_time": "15 minutes",
+    "ingredients": [ "bread", "eggs", "milk", "vanilla extract", "cinnamon", "butter", "maple syrup"],
+    "recipe": [
+      "1. In a shallow dish, whisk together eggs, milk, vanilla extract, and cinnamon until well combined.",
+      "2. Heat a skillet or griddle over medium heat and melt butter.",
+      "3. Dip each slice of bread into the egg mixture, making sure to coat both sides evenly.",
+      "4. Place the dipped bread slices onto the skillet or griddle and cook until golden brown on both sides, about 2-3 minutes per side.",
+      "5. Remove from the skillet and serve hot with maple syrup drizzled on top."
+    ]
+  },
+  {
+    "name_of_dish": "Omelette",
+    "type": "Breakfast",
+    "cooking_time": "10 minutes",
+    "ingredients": [ "eggs", "butter", "milk", "salt", "pepper", "fillings"],
+    "recipe": [
+      "1. Crack eggs into a bowl and whisk them until well beaten.",
+      "2. Heat a non-stick skillet over medium heat and add butter.",
+      "3. Pour the beaten eggs into the skillet and let them cook undisturbed for a minute or two, until the edges start to set.",
+      "4. Use a spatula to gently push the cooked edges toward the center of the skillet, allowing the uncooked eggs to flow to the edges.",
+      "5. Continue this process until the eggs are mostly set but still slightly runny on top.",
+      "6. Add your choice of fillings (e.g., cheese, ham, vegetables) to one half of the omelette.",
+      "7. Use the spatula to fold the other half of the omelette over the fillings.",
+      "8. Cook for another minute or until the cheese is melted and the fillings are heated through.",
+      "9. Slide the omelette onto a plate and serve hot."
+    ]
+  },
+  {
+    "name_of_dish": "Greek Salad",
+    "type": "Appetizer",
+    "cooking_time": "10 minutes",
+    "ingredients": [ "cucumbers", "tomatoes", "red onion", "olives", "feta", "olive oil", "red wine vinegar", "oregano", "salt", "pepper"],
+    "recipe": [
+      "1. Slice cucumbers, tomatoes, and red onion into bite-sized pieces.",
+      "2. Pit and halve olives.",
+      "3. Crumble feta cheese.",
+      "4. In a large bowl, combine sliced cucumbers, tomatoes, red onion, kalamata olives, and crumbled feta cheese.",
+      "5. Drizzle olive oil and red wine vinegar over the salad.",
+      "6. Season with dried oregano, salt, and pepper to taste.",
+      "7. Toss to coat evenly.",
+      "8. Serve immediately as a refreshing appetizer or side dish."
     ]
   }
 ]

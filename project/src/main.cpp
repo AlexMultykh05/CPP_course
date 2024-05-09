@@ -30,7 +30,7 @@ int main() {
 
     CookBook myCookBook("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
 
-    myCookBook.printDish(inputIngredients);
+    myCookBook.findDish(inputIngredients);
 
     return 0;
 }

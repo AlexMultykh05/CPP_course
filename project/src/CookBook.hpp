@@ -17,14 +17,18 @@ constexpr char COMMA = ',';
 constexpr char OPEN_INGREDIENTS[] = ": [";
 constexpr char INGREDIENTS[] = "ingredients";
 
+
+struct Dish {
+    std::string name;
+    std::string type;
+    int cookingTime;
+    std::vector<std::string> ingredients;
+    std::vector<std::string> recipe;
+};
+
+
 class CookBook {
 private:
-    std::string name_;
-    std::string type_;
-    unsigned short time_;
-    std::vector<std::string> ingredients_;
-    std::vector<std::string> recipe_;
-
     std::string content_;
 
 public:
@@ -45,38 +49,48 @@ public:
     static void storeCurrentIngredients(std::vector<std::string> &currentDishIngredients, std::istringstream &iss,
                                  std::string &ingredient);
 
-    static void checkIfMatchIngredients(const std::vector<std::string> &inputIngredients, std::vector<std::string> &currentDishIngredients,
-                             std::vector<std::string> &dishBuffer, bool &printedDish);
+    static bool checkIfMatchIngredients(const std::vector<std::string> &inputIngredients, std::vector<std::string> &currentDishIngredients);
 
     static void printRecipes(const std::vector<CookBook> &books, std::ostream &os = std::cout);
 
-    void printDish(const std::vector<std::string> &inputIngredients);
+    static void printDish(const Dish &dish);
 
-    static void parseLine(std::string &line);
-//    static void read_json(std::vector<CookBook> &books, std::istream &is);
+    void findDish(const std::vector<std::string> &inputIngredients);
+
+    static std::string parseName(const std::string &line, Dish &dish);
+
+    static std::string parseType(const std::string &line, Dish &dish);
+
+    static int parseTime(const std::string &line, Dish &dish);
+
+    static std::vector<std::string> parseIngredients(const std::string &line, Dish &dish);
+
+    static std::vector<std::string> parseRecipe(const std::string &line, Dish &dish);
+
+    static void parseLine(const std::string &line, Dish &dish);
 
 };
 
-
-inline const std::string &CookBook::name() const {
-    return name_;
-}
-
-inline const std::string &CookBook::type() const {
-    return type_;
-}
-
-inline unsigned short CookBook::time() const {
-    return time_;
-}
-
-inline const std::vector<std::string> &CookBook::ingredients() const {
-    return ingredients_;
-}
-
-inline const std::vector<std::string> &CookBook::recipe() const {
-    return recipe_;
-}
+//
+//inline const std::string &CookBook::name() const {
+//    return name_;
+//}
+//
+//inline const std::string &CookBook::type() const {
+//    return type_;
+//}
+//
+//inline unsigned short CookBook::time() const {
+//    return time_;
+//}
+//
+//inline const std::vector<std::string> &CookBook::ingredients() const {
+//    return ingredients_;
+//}
+//
+//inline const std::vector<std::string> &CookBook::recipe() const {
+//    return recipe_;
+//}
 
 
 #endif //PROJECT_COOKBOOK_HPP
