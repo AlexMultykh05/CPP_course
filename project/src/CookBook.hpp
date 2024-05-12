@@ -13,7 +13,7 @@
 
 constexpr char FAILED_OPEN_FILE[] = "Failed to open file.";
 constexpr char ENTER_NUM_OF_DISH[] = "Enter the number of the dish you want the recipe for: ";
-constexpr char ENTER_INGREDIENTS[] = "Enter 3 main ingredients: ";
+constexpr char ENTER_INGREDIENTS[] = "Enter ingredients (separated by comma): ";
 constexpr char INVALID_INPUT[] = "Invalid input. Please enter a number between 1 and ";
 constexpr char NAME_OF_DISH[] = "name_of_dish";
 constexpr char RECIPE_FOR[] = "Recipe for ";
@@ -22,7 +22,11 @@ constexpr char COOKING_TIME[] = "cooking_time";
 constexpr char INGREDIENTS[] = "ingredients";
 constexpr char INGREDIENTS_EOL[] = "ingredients:\n";
 constexpr char RECIPE[] = "recipe";
-constexpr char MINUTES[] = " minutes; ";
+constexpr char MINUTES_COLUMN[] = " minutes; ";
+constexpr char MINUTE[] = "minutes";
+constexpr char MINUTES[] = "minutes";
+constexpr char HOUR[] = "hour";
+constexpr char HOURS[] = "hours";
 constexpr char OPEN_CURLY_BRACKET = '{';
 constexpr char CLOSED_CURLY_BRACKET = '}';
 constexpr char OPEN_INGREDIENTS[] = ": [";
@@ -38,11 +42,15 @@ constexpr char TAB = '\t';
 constexpr char EOL = '\n';
 constexpr char QUOTE = '"';
 constexpr int MIN_DISH_NUM = 1;
+constexpr int MAX_DISH_NUM = 10;
+constexpr int MINUTES_IN_HOUR = 60;
+constexpr int MIN_NUMBER = 0;
 
 
 struct Dish {
     std::string name;
     std::string type;
+    std::string formattedCookingTime;
     int cookingTime;
     std::vector<std::string> ingredients;
     std::vector<std::string> recipe;
@@ -72,7 +80,7 @@ public:
 
     static std::string parseType(const std::string &line, Dish &dish);
 
-    static int parseTime(const std::string &line, Dish &dish);
+    static int parseCookingTime(const std::string &line, Dish &dish);
 
     static std::vector<std::string> parseIngredients(const std::string &line, Dish &dish);
 

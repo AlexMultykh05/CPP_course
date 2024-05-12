@@ -21,12 +21,13 @@ CookBook::CookBook(const std::string &filename) {
 void CookBook::printRecipe(const Dish &dish) {
     std::cout << RECIPE_FOR << dish.name << COLUMN_EOL;
 
-    for (const auto &step : dish.recipe) {
+    for (const auto &step: dish.recipe) {
         std::string trimmedStep = step;
 
-        trimmedStep.erase(trimmedStep.begin(), std::find_if(trimmedStep.begin(), trimmedStep.end(), [](unsigned char ch) {
-            return !std::isspace(ch);
-        }));
+        trimmedStep.erase(trimmedStep.begin(),
+                          std::find_if(trimmedStep.begin(), trimmedStep.end(), [](unsigned char ch) {
+                              return !std::isspace(ch);
+                          }));
         trimmedStep.erase(std::find_if(trimmedStep.rbegin(), trimmedStep.rend(), [](unsigned char ch) {
             return !std::isspace(ch);
         }).base(), trimmedStep.end());
@@ -44,9 +45,14 @@ void CookBook::printRecipe(const Dish &dish) {
 
 
 void CookBook::printDish(const Dish &dish) {
-    std::cout << dish.name << SEMI_COLUMN << dish.type << SEMI_COLUMN << dish.cookingTime << MINUTES << INGREDIENTS_EOL;
+    bool last = false;
+    std::cout << dish.name << SEMI_COLUMN << dish.type << SEMI_COLUMN << dish.formattedCookingTime << INGREDIENTS_EOL;
     for (const auto &ingredient: dish.ingredients) {
-        std::cout << TAB << ingredient << COMMA_EOL;
+        if (ingredient == dish.ingredients.back()) {
+            last = true;
+        }
+        std::cout << TAB << ingredient;
+        std::cout << (last ? "" : COMMA_EOL);
     }
     std::cout << EOL;
 }
@@ -77,7 +83,7 @@ void CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
     std::cin >> dishNumber;
     std::cout << EOL;
 
-    if (dishNumber < MIN_DISH_NUM || dishNumber > matchedDishes.size()) {
+    if (dishNumber < MIN_DISH_NUM || dishNumber > std::min(10, (int)matchedDishes.size())) {
         std::cout << INVALID_INPUT << matchedDishes.size() << DOT_EOL;
         return;
     }
@@ -85,7 +91,8 @@ void CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
     printRecipe(matchedDishes[dishNumber - 1]);
 }
 
-Dish CookBook::parseDish(std::vector<std::string>& dishBuffer) {
+
+Dish CookBook::parseDish(std::vector<std::string> &dishBuffer) {
     Dish dish;
     while (!dishBuffer.empty()) {
         std::string dishLine = dishBuffer.front();
@@ -104,22 +111,30 @@ Dish CookBook::parseDish(std::vector<std::string>& dishBuffer) {
     return dish;
 }
 
-bool CookBook::matchIngredients(const std::vector<std::string> &inputIngredients, const std::vector<std::string> &dishIngredients) {
-    return std::ranges::all_of(inputIngredients, [&dishIngredients](const auto &inputIngredient) {
-        return std::find(dishIngredients.begin(), dishIngredients.end(), inputIngredient) != dishIngredients.end();
-    });
+
+bool CookBook::matchIngredients(const std::vector<std::string> &inputIngredients,
+                                const std::vector<std::string> &dishIngredients) {
+    int matchCount = 0;
+    for (const auto &inputIngredient : inputIngredients) {
+        if (std::find(dishIngredients.begin(), dishIngredients.end(), inputIngredient) != dishIngredients.end()) {
+            matchCount++;
+        }
+    }
+    return matchCount >= 2;
 }
 
-void CookBook::sortAndPrintDishes(std::vector<Dish>& matchedDishes) {
+
+void CookBook::sortAndPrintDishes(std::vector<Dish> &matchedDishes) {
     std::sort(matchedDishes.begin(), matchedDishes.end(), [](const Dish &a, const Dish &b) {
         return a.cookingTime < b.cookingTime;
     });
 
-    for (int i = 0; i < std::min(3, (int) matchedDishes.size()); ++i) {
+    for (int i = 0; i < std::min(MAX_DISH_NUM, (int) matchedDishes.size()); ++i) {
         std::cout << std::to_string(i + 1) + DOT;
         printDish(matchedDishes[i]);
     }
 }
+
 
 std::string CookBook::parseName(const std::string &line, Dish &dish) {
     dish.name = line.substr(line.find(COLUMN) + 2);
@@ -128,6 +143,7 @@ std::string CookBook::parseName(const std::string &line, Dish &dish) {
     return dish.name;
 }
 
+
 std::string CookBook::parseType(const std::string &line, Dish &dish) {
     dish.type = line.substr(line.find(COLUMN) + 2);
     dish.type = dish.type.substr(1, dish.type.size() - 3);
@@ -135,13 +151,38 @@ std::string CookBook::parseType(const std::string &line, Dish &dish) {
     return dish.type;
 }
 
-int CookBook::parseTime(const std::string &line, Dish &dish) {
+
+int CookBook::parseCookingTime(const std::string &line, Dish &dish) {
     std::string cookingTime = line.substr(line.find(COLUMN) + 2);
     cookingTime = cookingTime.substr(1, cookingTime.size() - 3);
-    dish.cookingTime = std::stoi(cookingTime.substr(0, cookingTime.find(SPACE)));
 
-    return dish.cookingTime;
+    std::istringstream iss(cookingTime);
+    std::string word;
+    int totalMinutes = MIN_NUMBER;
+    int value;
+
+    while (iss >> value >> word) {
+        if (word == HOUR || word == HOURS) {
+            totalMinutes += value * MINUTES_IN_HOUR;
+        } else if (word == MINUTE || word == MINUTES) {
+            totalMinutes += value;
+        }
+    }
+
+    dish.cookingTime = totalMinutes;
+
+    if (totalMinutes <= MINUTES_IN_HOUR) {
+        dish.formattedCookingTime = std::to_string(totalMinutes) + MINUTES_COLUMN;
+    } else {
+        int hours = totalMinutes / MINUTES_IN_HOUR;
+        int minutes = totalMinutes % MINUTES_IN_HOUR;
+        dish.formattedCookingTime = std::to_string(hours) + (hours == MIN_DISH_NUM ? SPACE + HOUR + SPACE : SPACE + HOURS + SPACE) +
+                                    std::to_string(minutes) + MINUTES_COLUMN;
+    }
+
+    return totalMinutes;
 }
+
 
 std::vector<std::string> CookBook::parseIngredients(const std::string &line, Dish &dish) {
     std::string ingredients = line.substr(line.find(OPEN_INGREDIENTS) + 3);
@@ -156,7 +197,9 @@ std::vector<std::string> CookBook::parseIngredients(const std::string &line, Dis
     return dish.ingredients;
 }
 
-std::vector<std::string> CookBook::parseRecipe(const std::string &line, Dish &dish, std::vector<std::string>& dishBuffer) {
+
+std::vector<std::string>
+CookBook::parseRecipe(const std::string &line, Dish &dish, std::vector<std::string> &dishBuffer) {
     std::string step = line.substr(line.find(COLUMN) + 2);
     step = step.substr(1, step.size() - 3);
     dish.recipe.push_back(step);
@@ -174,13 +217,14 @@ std::vector<std::string> CookBook::parseRecipe(const std::string &line, Dish &di
     return dish.recipe;
 }
 
-void CookBook::parseLine(const std::string &line, Dish &dish, std::vector<std::string>& dishBuffer) {
+
+void CookBook::parseLine(const std::string &line, Dish &dish, std::vector<std::string> &dishBuffer) {
     if (line.find(NAME_OF_DISH) != std::string::npos) {
         dish.name = parseName(line, dish);
     } else if (line.find(TYPE) != std::string::npos) {
         dish.type = parseType(line, dish);
     } else if (line.find(COOKING_TIME) != std::string::npos) {
-        dish.cookingTime = parseTime(line, dish);
+        dish.cookingTime = parseCookingTime(line, dish);
     } else if (line.find(INGREDIENTS) != std::string::npos) {
         dish.ingredients = parseIngredients(line, dish);
     } else if (line.find(RECIPE) != std::string::npos) {

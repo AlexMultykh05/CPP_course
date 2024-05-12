@@ -4,6 +4,7 @@
 
 std::vector<std::string> readIngredients() {
     std::string line;
+    std::cout << ENTER_INGREDIENTS;
     std::getline(std::cin, line);
     std::vector<std::string> ingredients;
     std::stringstream ss(line);
@@ -23,8 +24,8 @@ std::vector<std::string> readIngredients() {
     return ingredients;
 }
 
+
 int main() {
-    std::cout << ENTER_INGREDIENTS;
     std::vector<std::string> inputIngredients = readIngredients();
 
     CookBook myCookBook("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
