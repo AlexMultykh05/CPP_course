@@ -27,6 +27,8 @@ constexpr char MINUTE[] = "minutes";
 constexpr char MINUTES[] = "minutes";
 constexpr char HOUR[] = "hour";
 constexpr char HOURS[] = "hours";
+constexpr char HOUR_SPACES[] = " hour ";
+constexpr char HOURS_SPACE[] = " hours";
 constexpr char OPEN_CURLY_BRACKET = '{';
 constexpr char CLOSED_CURLY_BRACKET = '}';
 constexpr char OPEN_INGREDIENTS[] = ": [";
@@ -68,17 +70,21 @@ public:
 
     static void printDish(const Dish &dish);
 
-    void suggestDish(const std::vector<std::string> &inputIngredients);
+    bool checkIfEmpty(const std::vector<Dish> &matchedDishes);
+
+    bool suggestDish(const std::vector<std::string> &inputIngredients);
+
+    static void sortDishes(const std::string &method, std::vector<Dish> &dishes);
 
     static Dish parseDish(std::vector<std::string>& dishBuffer);
 
     static bool matchIngredients(const std::vector<std::string> &inputIngredients, const std::vector<std::string> &dishIngredients);
 
-    static void sortAndPrintDishes(std::vector<Dish> &matchedDishes);
-
     static std::string parseName(const std::string &line, Dish &dish);
 
     static std::string parseType(const std::string &line, Dish &dish);
+
+    static int computingTime(const std::string &cookingTime);
 
     static int parseCookingTime(const std::string &line, Dish &dish);
 

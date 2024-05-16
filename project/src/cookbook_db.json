@@ -1,9 +1,9 @@
 [
   {
-    "name_of_dish": "chicken carbonara",
+    "name_of_dish": "Chicken Carbonara",
     "type": "dinner",
     "cooking_time": "30 minutes",
-    "ingredients": [ "spaghetti", "chicken", "bacon", "garlic", "eggs", "heavy cream", "parmesan", "parsley"],
+    "ingredients": [ "spaghetti", "chicken", "bacon", "garlic", "eggs", "cream", "parmesan", "parsley"],
     "recipe": [
       "1. Cook spaghetti according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
       "2. In a large skillet, cook chopped bacon over medium heat until crispy. Remove bacon from skillet and set aside on paper towels to drain excess grease.",
@@ -15,37 +15,7 @@
     ]
   },
   {
-    "name_of_dish": "chicken asdf",
-    "type": "dinner",
-    "cooking_time": "20 minutes",
-    "ingredients": [ "spaghetti", "chicken", "bacon", "garlic", "parsley"],
-    "recipe": [
-      "1. Cook spaghetti according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
-      "2. In a large skillet, cook chopped bacon over medium heat until crispy. Remove bacon from skillet and set aside on paper towels to drain excess grease.",
-      "3. In the same skillet, add chicken strips and cook until golden brown and cooked through. Add minced garlic and cook for an additional minute.",
-      "4. In a small bowl, whisk together eggs, heavy cream, and grated Parmesan cheese.",
-      "5. Add cooked spaghetti to the skillet with chicken and garlic. Pour the egg mixture over the spaghetti and toss quickly to coat the pasta evenly. If the sauce is too thick, add reserved pasta water a little at a time until desired consistency is reached.",
-      "6. Add crispy bacon to the skillet and toss to combine.",
-      "7. Season with salt and pepper to taste. Garnish with chopped parsley before serving."
-    ]
-  },
-  {
-    "name_of_dish": "chicken fsdfdw",
-    "type": "dinner",
-    "cooking_time": "25 minutes",
-    "ingredients": [ "spaghetti", "chicken", "bacon", "parmesan", "parsley"],
-    "recipe": [
-      "1. Cook spaghetti according to package instructions until al dente. Drain and set aside, reserving 1/2 cup of pasta water.",
-      "2. In a large skillet, cook chopped bacon over medium heat until crispy. Remove bacon from skillet and set aside on paper towels to drain excess grease.",
-      "3. In the same skillet, add chicken strips and cook until golden brown and cooked through. Add minced garlic and cook for an additional minute.",
-      "4. In a small bowl, whisk together eggs, heavy cream, and grated Parmesan cheese.",
-      "5. Add cooked spaghetti to the skillet with chicken and garlic. Pour the egg mixture over the spaghetti and toss quickly to coat the pasta evenly. If the sauce is too thick, add reserved pasta water a little at a time until desired consistency is reached.",
-      "6. Add crispy bacon to the skillet and toss to combine.",
-      "7. Season with salt and pepper to taste. Garnish with chopped parsley before serving."
-    ]
-  },
-  {
-    "name_of_dish": "spaghetti aglio e olio",
+    "name_of_dish": "Spaghetti Aglio e Olio",
     "type": "dinner",
     "cooking_time": "20 minutes",
     "ingredients": [ "spaghetti", "garlic", "olive oil", "red pepper", "parsley"],
@@ -57,7 +27,7 @@
     ]
   },
   {
-    "name_of_dish": "caprese salad",
+    "name_of_dish": "Caprese Salad",
     "type": "appetizer",
     "cooking_time": "10 minutes",
     "ingredients": [ "tomatoes", "fresh mozzarella cheese", "basil", "balsamic vinegar", "olive oil", "salt"],
@@ -513,6 +483,161 @@
       "6. Season with dried oregano, salt, and pepper to taste.",
       "7. Toss to coat evenly.",
       "8. Serve immediately as a refreshing appetizer or side dish."
+    ]
+  },
+  {
+    "name_of_dish": "Pancakes",
+    "type": "Breakfast",
+    "cooking_time": "20 minutes",
+    "ingredients": ["flour", "milk", "eggs", "sugar", "baking powder", "butter", "salt", "vanilla extract"],
+    "recipe": [
+      "1. In a large bowl, mix together flour, sugar, baking powder, and salt.",
+      "2. In another bowl, whisk together milk, eggs, melted butter, and vanilla extract.",
+      "3. Gradually add the wet ingredients to the dry ingredients, mixing just until combined.",
+      "4. Heat a non-stick skillet over medium heat and lightly grease with butter.",
+      "5. Pour 1/4 cup of batter onto the skillet for each pancake. Cook until bubbles form on the surface, then flip and cook until golden brown.",
+      "6. Serve hot with maple syrup and fresh fruits."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Parmesan",
+    "type": "Dinner",
+    "cooking_time": "45 minutes",
+    "ingredients": ["chicken", "flour", "eggs", "breadcrumbs", "parmesan", "mozzarella", "marinara sauce", "olive oil", "salt", "pepper"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. Season chicken breasts with salt and pepper, then dredge in flour, dip in beaten eggs, and coat in breadcrumbs mixed with grated Parmesan.",
+      "3. Heat olive oil in a skillet over medium heat and cook the chicken until golden brown on both sides.",
+      "4. Pour marinara sauce into a baking dish, place the chicken on top, and cover with mozzarella cheese.",
+      "5. Bake in the preheated oven for about 20 minutes, or until the chicken is cooked through and the cheese is melted and bubbly.",
+      "6. Serve hot with pasta or a side salad."
+    ]
+  },
+  {
+    "name_of_dish": "Beef Burgers",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": ["beef", "onion", "garlic", "egg", "breadcrumbs", "salt", "pepper", "buns", "lettuce", "tomato", "cheese", "condiments"],
+    "recipe": [
+      "1. In a large bowl, mix together ground beef, finely chopped onion, minced garlic, beaten egg, breadcrumbs, salt, and pepper.",
+      "2. Shape the mixture into patties and refrigerate for 15 minutes to firm up.",
+      "3. Heat a grill or skillet over medium heat and cook the patties until browned and cooked to your desired doneness.",
+      "4. Serve the burgers on buns with lettuce, sliced tomato, cheese, and your favorite condiments."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Fried Rice",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": ["rice", "chicken", "eggs", "carrots", "peas", "onion", "soy sauce", "sesame oil", "garlic", "salt", "pepper"],
+    "recipe": [
+      "1. Cook rice according to package instructions and set aside.",
+      "2. In a large skillet or wok, heat sesame oil over medium heat. Add diced chicken and cook until browned and cooked through.",
+      "3. Add chopped onion and minced garlic to the skillet and cook until softened.",
+      "4. Push the chicken and vegetables to one side of the skillet and scramble the eggs on the other side.",
+      "5. Mix everything together and add the cooked rice, peas, carrots, and soy sauce.",
+      "6. Stir-fry for a few more minutes until everything is well combined and heated through.",
+      "7. Season with salt and pepper to taste, and serve hot."
+    ]
+  },
+  {
+    "name_of_dish": "Vegetable Lasagna",
+    "type": "Dinner",
+    "cooking_time": "1 hour",
+    "ingredients": ["noodles", "ricotta", "mozzarella", "parmesan", "spinach", "zucchini", "bell peppers", "onion", "garlic", "marinara sauce", "olive oil", "salt", "pepper"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. Cook lasagna noodles according to package instructions until al dente. Drain and set aside.",
+      "3. In a large skillet, heat olive oil over medium heat. Add chopped onion, minced garlic, sliced zucchini, and bell peppers, and cook until softened.",
+      "4. In a bowl, mix together ricotta cheese, half of the mozzarella cheese, and grated Parmesan.",
+      "5. Spread a layer of marinara sauce in the bottom of a baking dish. Arrange a layer of lasagna noodles on top, followed by a layer of the cheese mixture, a layer of vegetables, and another layer of marinara sauce.",
+      "6. Repeat the layers until all ingredients are used, ending with a layer of marinara sauce. Sprinkle the remaining mozzarella cheese on top.",
+      "7. Cover with foil and bake in the preheated oven for 30 minutes. Then, remove the foil and bake for another 15-20 minutes, or until the cheese is melted and bubbly.",
+      "8. Let the lasagna rest for 10 minutes before serving."
+    ]
+  },
+  {
+    "name_of_dish": "Apple Pie",
+    "type": "Dessert",
+    "cooking_time": "1 hour",
+    "ingredients": ["apples", "sugar", "flour", "cinnamon", "nutmeg", "lemon juice", "pie crust", "butter", "egg"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. Peel and slice apples. Toss with sugar, flour, cinnamon, nutmeg, and lemon juice.",
+      "3. Roll out one pie crust and fit it into a pie dish. Fill with the apple mixture and dot with small pieces of butter.",
+      "4. Roll out the second pie crust and place it on top of the apples. Crimp the edges to seal and cut slits in the top crust to vent.",
+      "5. Beat an egg with a little water and brush it over the top crust for a shiny finish.",
+      "6. Bake in the preheated oven for about 50 minutes, or until the crust is golden and the apples are tender.",
+      "7. Let the pie cool before serving."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Tacos",
+    "type": "Dinner",
+    "cooking_time": "30 minutes",
+    "ingredients": ["chicken", "seasoning", "taco shells", "lettuce", "tomato", "cheese", "sour cream", "salsa"],
+    "recipe": [
+      "1. Cut chicken into thin strips and season with taco seasoning.",
+      "2. Heat a skillet over medium heat and cook the chicken until browned and cooked through.",
+      "3. Warm taco shells according to package instructions.",
+      "4. Fill each taco shell with a spoonful of cooked chicken, shredded lettuce, diced tomato, grated cheese, sour cream, and salsa.",
+      "5. Serve immediately and enjoy!"
+    ]
+  },
+  {
+    "name_of_dish": "Chocolate Cake",
+    "type": "Dessert",
+    "cooking_time": "1 hour",
+    "ingredients": ["flour", "sugar", "cocoa powder", "baking powder", "baking soda", "salt", "eggs", "milk", "vegetable oil", "vanilla extract", "boiling water", "chocolate frosting"],
+    "recipe": [
+      "1. Preheat your oven to 350°F (175°C). Grease and flour a cake pan.",
+      "2. In a large bowl, mix together flour, sugar, cocoa, baking powder, baking soda, and salt.",
+      "3. Add eggs, milk, oil, and vanilla, and mix until smooth. Stir in boiling water until well combined.",
+      "4. Pour the batter into the prepared cake pan.",
+      "5. Bake in the preheated oven for about 30-35 minutes, or until a toothpick inserted into the center comes out clean.",
+      "6. Let the cake cool in the pan for 10 minutes, then transfer to a wire rack to cool completely.",
+      "7. Once the cake is cool, frost with chocolate frosting."
+    ]
+  },
+  {
+    "name_of_dish": "Garlic Bread",
+    "type": "Appetizer",
+    "cooking_time": "15 minutes",
+    "ingredients": ["bread", "butter", "garlic", "parsley"],
+    "recipe": [
+      "1. Preheat your oven to 350°F (175°C).",
+      "2. Mix softened butter with minced garlic and chopped parsley.",
+      "3. Spread the butter mixture on the bread slices.",
+      "4. Bake in the preheated oven for about 10-15 minutes, or until the bread is toasted and the butter is melted.",
+      "5. Serve hot."
+    ]
+  },
+  {
+    "name_of_dish": "Peanut Butter Cookies",
+    "type": "Dessert",
+    "cooking_time": "20 minutes",
+    "ingredients": ["flour", "peanut butter", "sugar", "butter", "egg", "baking powder", "vanilla extract"],
+    "recipe": [
+      "1. Preheat your oven to 375°F (190°C).",
+      "2. In a large bowl, mix together flour, baking powder, and sugar.",
+      "3. Add softened butter, peanut butter, egg, and vanilla extract, and mix until well combined.",
+      "4. Roll the dough into small balls and place them on a baking sheet.",
+      "5. Flatten each ball with a fork, making a crisscross pattern.",
+      "6. Bake in the preheated oven for about 10-12 minutes, or until the edges are golden.",
+      "7. Let the cookies cool on the baking sheet for a few minutes before transferring them to a wire rack to cool completely."
+    ]
+  },
+  {
+    "name_of_dish": "Chicken Soup",
+    "type": "Lunch",
+    "cooking_time": "1 hour",
+    "ingredients": ["chicken", "carrots", "celery", "onion", "garlic", "chicken broth", "salt", "pepper"],
+    "recipe": [
+      "1. In a large pot, combine chicken, carrots, celery, onion, garlic, and chicken broth.",
+      "2. Bring to a boil, then reduce heat and simmer for about 1 hour, or until the chicken is cooked through and the vegetables are tender.",
+      "3. Remove the chicken from the pot and shred it into bite-sized pieces.",
+      "4. Return the shredded chicken to the pot and season with salt and pepper.",
+      "5. Serve hot."
     ]
   }
 ]

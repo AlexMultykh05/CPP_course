@@ -18,19 +18,19 @@ CookBook::CookBook(const std::string &filename) {
 }
 
 
+bool isNotSpace(unsigned char ch) {
+    return !std::isspace(ch);
+}
+
+
 void CookBook::printRecipe(const Dish &dish) {
     std::cout << RECIPE_FOR << dish.name << COLUMN_EOL;
 
     for (const auto &step: dish.recipe) {
         std::string trimmedStep = step;
 
-        trimmedStep.erase(trimmedStep.begin(),
-                          std::find_if(trimmedStep.begin(), trimmedStep.end(), [](unsigned char ch) {
-                              return !std::isspace(ch);
-                          }));
-        trimmedStep.erase(std::find_if(trimmedStep.rbegin(), trimmedStep.rend(), [](unsigned char ch) {
-            return !std::isspace(ch);
-        }).base(), trimmedStep.end());
+        trimmedStep.erase(trimmedStep.begin(), std::find_if(trimmedStep.begin(), trimmedStep.end(), isNotSpace));
+        trimmedStep.erase(std::find_if(trimmedStep.rbegin(), trimmedStep.rend(), isNotSpace).base(), trimmedStep.end());
 
         if (trimmedStep.front() == QUOTE) {
             trimmedStep.erase(trimmedStep.begin());
@@ -58,7 +58,15 @@ void CookBook::printDish(const Dish &dish) {
 }
 
 
-void CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
+bool CookBook::checkIfEmpty(const std::vector<Dish> &matchedDishes) {
+    if (matchedDishes.empty()) {
+        std::cout << "I am sorry, I do not have a dish to suggest." << std::endl;
+        return false;
+    }
+}
+
+
+bool CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
     std::vector<Dish> matchedDishes;
 
     std::istringstream f(content_);
@@ -76,19 +84,65 @@ void CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
         }
     }
 
-    sortAndPrintDishes(matchedDishes);
-
-    std::cout << ENTER_NUM_OF_DISH;
-    int dishNumber;
-    std::cin >> dishNumber;
-    std::cout << EOL;
-
-    if (dishNumber < MIN_DISH_NUM || dishNumber > std::min(10, (int)matchedDishes.size())) {
-        std::cout << INVALID_INPUT << matchedDishes.size() << DOT_EOL;
-        return;
+    if (matchedDishes.empty()) {
+        std::cout << "I am sorry, I do not have a dish to suggest." << std::endl;
+        return false;
     }
 
-    printRecipe(matchedDishes[dishNumber - 1]);
+    std::cout << "Choose sorting (type/time/alphabet): ";
+    std::string sortingMethod;
+    std::cin >> sortingMethod;
+
+    sortDishes(sortingMethod, matchedDishes);
+
+    int start = 0;
+    int end = std::min(MAX_DISH_NUM, (int) matchedDishes.size());
+
+    while (true) {
+        for (int i = start; i < end; ++i) {
+            std::cout << std::to_string(i + 1) + DOT;
+            printDish(matchedDishes[i]);
+        }
+
+        std::cout << "Enter the number of the dish for the recipe or 'more' to load more dishes: ";
+        std::string input;
+        std::cin >> input;
+
+        if (input == "more") {
+            start = end;
+            end = std::min(end + MAX_DISH_NUM, (int) matchedDishes.size());
+            if (start == end) {
+                std::cout << "No more dishes to load." << std::endl;
+            }
+        } else {
+            int dishNumber = std::stoi(input);
+            if (dishNumber < MIN_DISH_NUM || dishNumber > end) {
+                std::cout << INVALID_INPUT << end << DOT_EOL;
+            } else {
+                printRecipe(matchedDishes[dishNumber - 1]);
+                break;
+            }
+        }
+    }
+
+    return true;
+}
+
+
+void CookBook::sortDishes(const std::string& method, std::vector<Dish>& dishes) {
+    if (method == "type") {
+        std::sort(dishes.begin(), dishes.end(), [](const Dish& a, const Dish& b) {
+            return a.type < b.type;
+        });
+    } else if (method == "time") {
+        std::sort(dishes.begin(), dishes.end(), [](const Dish& a, const Dish& b) {
+            return a.cookingTime < b.cookingTime;
+        });
+    } else if (method == "alphabet") {
+        std::sort(dishes.begin(), dishes.end(), [](const Dish& a, const Dish& b) {
+            return a.name < b.name;
+        });
+    }
 }
 
 
@@ -115,24 +169,12 @@ Dish CookBook::parseDish(std::vector<std::string> &dishBuffer) {
 bool CookBook::matchIngredients(const std::vector<std::string> &inputIngredients,
                                 const std::vector<std::string> &dishIngredients) {
     int matchCount = 0;
-    for (const auto &inputIngredient : inputIngredients) {
+    for (const auto &inputIngredient: inputIngredients) {
         if (std::find(dishIngredients.begin(), dishIngredients.end(), inputIngredient) != dishIngredients.end()) {
             matchCount++;
         }
     }
     return matchCount >= 2;
-}
-
-
-void CookBook::sortAndPrintDishes(std::vector<Dish> &matchedDishes) {
-    std::sort(matchedDishes.begin(), matchedDishes.end(), [](const Dish &a, const Dish &b) {
-        return a.cookingTime < b.cookingTime;
-    });
-
-    for (int i = 0; i < std::min(MAX_DISH_NUM, (int) matchedDishes.size()); ++i) {
-        std::cout << std::to_string(i + 1) + DOT;
-        printDish(matchedDishes[i]);
-    }
 }
 
 
@@ -152,15 +194,11 @@ std::string CookBook::parseType(const std::string &line, Dish &dish) {
 }
 
 
-int CookBook::parseCookingTime(const std::string &line, Dish &dish) {
-    std::string cookingTime = line.substr(line.find(COLUMN) + 2);
-    cookingTime = cookingTime.substr(1, cookingTime.size() - 3);
-
+int CookBook::computingTime(const std::string &cookingTime) {
     std::istringstream iss(cookingTime);
     std::string word;
     int totalMinutes = MIN_NUMBER;
     int value;
-
     while (iss >> value >> word) {
         if (word == HOUR || word == HOURS) {
             totalMinutes += value * MINUTES_IN_HOUR;
@@ -169,6 +207,16 @@ int CookBook::parseCookingTime(const std::string &line, Dish &dish) {
         }
     }
 
+    return totalMinutes;
+}
+
+
+int CookBook::parseCookingTime(const std::string &line, Dish &dish) {
+    std::string cookingTime = line.substr(line.find(COLUMN) + 2);
+    cookingTime = cookingTime.substr(1, cookingTime.size() - 3);
+
+    int totalMinutes = computingTime(cookingTime);
+
     dish.cookingTime = totalMinutes;
 
     if (totalMinutes <= MINUTES_IN_HOUR) {
@@ -176,8 +224,8 @@ int CookBook::parseCookingTime(const std::string &line, Dish &dish) {
     } else {
         int hours = totalMinutes / MINUTES_IN_HOUR;
         int minutes = totalMinutes % MINUTES_IN_HOUR;
-        dish.formattedCookingTime = std::to_string(hours) + (hours == MIN_DISH_NUM ? SPACE + HOUR + SPACE : SPACE + HOURS + SPACE) +
-                                    std::to_string(minutes) + MINUTES_COLUMN;
+        dish.formattedCookingTime = std::to_string(hours) + (hours == MIN_DISH_NUM ? HOUR_SPACES : HOURS_SPACE) +
+                                    (minutes > 0 ? SPACE + std::to_string(minutes) + MINUTES_COLUMN : SEMI_COLUMN);
     }
 
     return totalMinutes;
