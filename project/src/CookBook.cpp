@@ -4,6 +4,21 @@
 
 #include "CookBook.hpp"
 
+namespace nlohmann {
+    void to_json(json& j, const Dish& d) {
+        j = json{{"name", d.name}, {"type", d.type}, {"formattedCookingTime", d.formattedCookingTime}, {"cookingTime", d.cookingTime}, {"ingredients", d.ingredients}, {"recipe", d.recipe}};
+    }
+
+    void from_json(const json& j, Dish& d) {
+        j.at("name").get_to(d.name);
+        j.at("type").get_to(d.type);
+        j.at("formattedCookingTime").get_to(d.formattedCookingTime);
+        j.at("cookingTime").get_to(d.cookingTime);
+        j.at("ingredients").get_to(d.ingredients);
+        j.at("recipe").get_to(d.recipe);
+    }
+}
+
 
 CookBook::CookBook(const std::string &filename) {
     std::ifstream file(filename);
@@ -39,8 +54,9 @@ void CookBook::printRecipe(const Dish &dish) {
             trimmedStep.erase(trimmedStep.rbegin().base() - 1);
         }
 
-        std::cout << trimmedStep << EOL;
+        std::cout << trimmedStep << std::endl;
     }
+    std::cout << std::endl;
 }
 
 
@@ -51,19 +67,12 @@ void CookBook::printDish(const Dish &dish) {
         if (ingredient == dish.ingredients.back()) {
             last = true;
         }
-        std::cout << TAB << ingredient;
-        std::cout << (last ? "" : COMMA_EOL);
+        std::cout << TAB << ingredient << (last ? EMPTY : COMMA_EOL);
     }
     std::cout << EOL;
 }
 
 
-bool CookBook::checkIfEmpty(const std::vector<Dish> &matchedDishes) {
-    if (matchedDishes.empty()) {
-        std::cout << "I am sorry, I do not have a dish to suggest." << std::endl;
-        return false;
-    }
-}
 
 
 bool CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
@@ -104,7 +113,7 @@ bool CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
             printDish(matchedDishes[i]);
         }
 
-        std::cout << "Enter the number of the dish for the recipe or 'more' to load more dishes: ";
+        std::cout << ENTER_NUM_OF_DISH;
         std::string input;
         std::cin >> input;
 
@@ -130,15 +139,15 @@ bool CookBook::suggestDish(const std::vector<std::string> &inputIngredients) {
 
 
 void CookBook::sortDishes(const std::string& method, std::vector<Dish>& dishes) {
-    if (method == "type") {
+    if (method == TYPE) {
         std::sort(dishes.begin(), dishes.end(), [](const Dish& a, const Dish& b) {
             return a.type < b.type;
         });
-    } else if (method == "time") {
+    } else if (method == TIME) {
         std::sort(dishes.begin(), dishes.end(), [](const Dish& a, const Dish& b) {
             return a.cookingTime < b.cookingTime;
         });
-    } else if (method == "alphabet") {
+    } else if (method == ALPHABET) {
         std::sort(dishes.begin(), dishes.end(), [](const Dish& a, const Dish& b) {
             return a.name < b.name;
         });
@@ -157,7 +166,7 @@ Dish CookBook::parseDish(std::vector<std::string> &dishBuffer) {
         } else if (dishLine.find(CLOSED_CURLY_BRACKET) != std::string::npos) {
             break;
         } else if (dishLine.find(RECIPE) != std::string::npos) {
-            parseRecipe(dishLine, dish, dishBuffer);
+            parseRecipe(dishBuffer, dish);
         } else {
             parseLine(dishLine, dish, dishBuffer);
         }
@@ -188,34 +197,17 @@ std::string CookBook::parseName(const std::string &line, Dish &dish) {
 
 std::string CookBook::parseType(const std::string &line, Dish &dish) {
     dish.type = line.substr(line.find(COLUMN) + 2);
-    dish.type = dish.type.substr(1, dish.type.size() - 3);
+    dish.type = dish.type.substr(1, dish.type.size() - 2);
 
     return dish.type;
 }
 
 
-int CookBook::computingTime(const std::string &cookingTime) {
-    std::istringstream iss(cookingTime);
-    std::string word;
-    int totalMinutes = MIN_NUMBER;
-    int value;
-    while (iss >> value >> word) {
-        if (word == HOUR || word == HOURS) {
-            totalMinutes += value * MINUTES_IN_HOUR;
-        } else if (word == MINUTE || word == MINUTES) {
-            totalMinutes += value;
-        }
-    }
-
-    return totalMinutes;
-}
-
-
 int CookBook::parseCookingTime(const std::string &line, Dish &dish) {
     std::string cookingTime = line.substr(line.find(COLUMN) + 2);
-    cookingTime = cookingTime.substr(1, cookingTime.size() - 3);
+    cookingTime = cookingTime.substr(0, cookingTime.size() - 1);
 
-    int totalMinutes = computingTime(cookingTime);
+    int totalMinutes = std::stoi(cookingTime);
 
     dish.cookingTime = totalMinutes;
 
@@ -232,34 +224,33 @@ int CookBook::parseCookingTime(const std::string &line, Dish &dish) {
 }
 
 
-std::vector<std::string> CookBook::parseIngredients(const std::string &line, Dish &dish) {
-    std::string ingredients = line.substr(line.find(OPEN_INGREDIENTS) + 3);
-    ingredients = ingredients.substr(0, ingredients.size() - 2);
-    std::istringstream iss(ingredients);
-    std::string ingredient;
-    while (std::getline(iss, ingredient, COMMA)) {
-        ingredient = ingredient.substr(2, ingredient.size() - 3);
+std::vector<std::string> CookBook::parseIngredients(std::vector<std::string> &dishBuffer, Dish &dish) {
+    std::string line = dishBuffer.front();
+    dishBuffer.erase(dishBuffer.begin());
+
+    while (line.find(CLOSED_SQUARE_BRACKET) == std::string::npos) {
+        std::string ingredient = line.substr(line.find(QUOTE) + 1);
+        ingredient = ingredient.substr(0, ingredient.rfind(QUOTE));
         dish.ingredients.push_back(ingredient);
+
+        line = dishBuffer.front();
+        dishBuffer.erase(dishBuffer.begin());
     }
 
     return dish.ingredients;
 }
 
+std::vector<std::string> CookBook::parseRecipe(std::vector<std::string> &dishBuffer, Dish &dish) {
+    std::string line = dishBuffer.front();
+    dishBuffer.erase(dishBuffer.begin());
 
-std::vector<std::string>
-CookBook::parseRecipe(const std::string &line, Dish &dish, std::vector<std::string> &dishBuffer) {
-    std::string step = line.substr(line.find(COLUMN) + 2);
-    step = step.substr(1, step.size() - 3);
-    dish.recipe.push_back(step);
-
-    while (!dishBuffer.empty()) {
-        std::string nextLine = dishBuffer.front();
-        if (nextLine.find(CLOSED_CURLY_BRACKET) != std::string::npos) {
-            break;
-        }
-        dishBuffer.erase(dishBuffer.begin());
-        step = nextLine.substr(2, nextLine.size() - 3);
+    while (line.find(CLOSED_SQUARE_BRACKET) == std::string::npos) {
+        std::string step = line.substr(line.find(QUOTE) + 1);
+        step = step.substr(0, step.rfind(QUOTE));
         dish.recipe.push_back(step);
+
+        line = dishBuffer.front();
+        dishBuffer.erase(dishBuffer.begin());
     }
 
     return dish.recipe;
@@ -274,8 +265,103 @@ void CookBook::parseLine(const std::string &line, Dish &dish, std::vector<std::s
     } else if (line.find(COOKING_TIME) != std::string::npos) {
         dish.cookingTime = parseCookingTime(line, dish);
     } else if (line.find(INGREDIENTS) != std::string::npos) {
-        dish.ingredients = parseIngredients(line, dish);
+        dish.ingredients = parseIngredients(dishBuffer, dish);
     } else if (line.find(RECIPE) != std::string::npos) {
-        dish.recipe = parseRecipe(line, dish, dishBuffer);
+        dish.recipe = parseRecipe(dishBuffer, dish);
     }
+}
+
+
+nlohmann::json CookBook::loadJson() {
+    // Load the existing JSON file
+    std::ifstream inputFile("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
+    nlohmann::json j;
+    inputFile >> j;
+    inputFile.close();
+
+    return j;
+}
+
+void CookBook::writeJsonObject(const nlohmann::json& j) {
+    std::ofstream outputFile("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
+    outputFile << j.dump(4);  // 4 spaces for indentation
+    outputFile.close();
+}
+
+void CookBook::addDish(const Dish &newDish) {
+    nlohmann::json j = loadJson();
+
+    nlohmann::json newDishJson = {
+            {"name_of_dish", newDish.name},
+            {"type", newDish.type},
+            {"cooking_time", newDish.cookingTime},
+            {"ingredients", newDish.ingredients},
+            {"recipe", newDish.recipe}
+    };
+
+    j.push_back(newDishJson);
+
+    writeJsonObject(j);
+}
+
+void CookBook::deleteDish(const std::string& dishName) {
+    nlohmann::json j = loadJson();
+
+    for (auto it = j.begin(); it != j.end(); ++it) {
+        if ((*it)["name_of_dish"] == dishName) {
+            j.erase(it);
+            break;
+        }
+    }
+
+    writeJsonObject(j);
+}
+
+void CookBook::editDish(const std::string& dishName, const Dish& updatedDish) {
+    nlohmann::json j = loadJson();
+
+    for (auto& dish : j) {
+        if (dish["name_of_dish"] == dishName) {
+            dish["name_of_dish"] = updatedDish.name;
+            dish["type"] = updatedDish.type;
+            dish["cooking_time"] = updatedDish.cookingTime;
+            dish["ingredients"] = updatedDish.ingredients;
+            dish["recipe"] = updatedDish.recipe;
+            break;
+        }
+    }
+
+    writeJsonObject(j);
+}
+
+void CookBook::printArray(const nlohmann::json &array, const std::string &label) {
+    bool lastElement = false;
+    std::cout << label << COLUMN_EOL;
+    for (const auto &element: array) {
+        if (element == array.back()) {
+            lastElement = true;
+        }
+        std::cout << TAB << element;
+        std::cout << (lastElement ? "" : COMMA_EOL);
+    }
+    std::cout << EOL;
+}
+
+void CookBook::viewDish(const std::string &name) {
+    nlohmann::json j = loadJson();
+
+    for (const auto &dish : j) {
+        if (dish["name_of_dish"] == name) {
+            std::cout << dish["name_of_dish"] << SEMI_COLUMN << std::endl;
+            std::cout<< dish["type"] << SEMI_COLUMN << std::endl;
+            std::cout << dish["cooking_time"] << SEMI_COLUMN << std::endl;
+            printArray(dish["ingredients"], "Ingredients");
+            printArray(dish["recipe"], "Recipe");
+            std::cout << EOL;
+            return;
+        }
+    }
+
+    // If the dish was not found
+    std::cout << "Dish not found." << std::endl;
 }

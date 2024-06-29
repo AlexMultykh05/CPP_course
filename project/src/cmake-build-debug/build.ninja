@@ -52,12 +52,14 @@ build cmake_object_order_depends_target_project: phony || CMakeFiles/project.dir
 build CMakeFiles/project.dir/main.cpp.o: CXX_COMPILER__project_unscanned_Debug /Users/alexmultykh/Desktop/multykho/project/src/main.cpp || cmake_object_order_depends_target_project
   DEP_FILE = CMakeFiles/project.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexmultykh/Library/Caches/Homebrew/downloads/nlohmann-json/3.11.3/include
   OBJECT_DIR = CMakeFiles/project.dir
   OBJECT_FILE_DIR = CMakeFiles/project.dir
 
 build CMakeFiles/project.dir/CookBook.cpp.o: CXX_COMPILER__project_unscanned_Debug /Users/alexmultykh/Desktop/multykho/project/src/CookBook.cpp || cmake_object_order_depends_target_project
   DEP_FILE = CMakeFiles/project.dir/CookBook.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexmultykh/Library/Caches/Homebrew/downloads/nlohmann-json/3.11.3/include
   OBJECT_DIR = CMakeFiles/project.dir
   OBJECT_FILE_DIR = CMakeFiles/project.dir
 
