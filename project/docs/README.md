@@ -52,6 +52,9 @@ The application consists of the following modules:
    The test cases are written in a markdown format and can be run using a command-line interface or an IDE that supports C++.
 
 
+6. `cookbook.json`: This module contains the sample data for the Cookbook.
+   The sample data is in JSON format and contains a list of recipes that can be used to test the application.
+
 ### Running the Application and Tests
 
 To run the Kitchen Assistant application, user needs to compile the source code

@@ -7,6 +7,7 @@
 4. `Dish.hpp`
 5. `Constants.hpp`
 6. `Tests.md`
+7. `cookbook_db.json`
 
 ## Project subdirectories
 
