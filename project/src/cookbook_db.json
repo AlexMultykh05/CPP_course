@@ -989,5 +989,38 @@
             "7. Let the cookies cool on the baking sheet for a few minutes before transferring them to a wire rack to cool completely."
         ],
         "type": "Dessert"
+    },
+    {
+        "cooking_time": 13,
+        "ingredients": [
+            "corn",
+            "pop",
+            "olive oil",
+            "pan"
+        ],
+        "name_of_dish": "cotleta kyiv",
+        "recipe": [
+            "1. uehieufgeiufgwifhweiufg",
+            "2. iufgeiufgeiufgeiufgweiufg",
+            "3. uehfiuwegfiuyewgfie"
+        ],
+        "type": "breakfasr"
+    },
+    {
+        "cooking_time": 15,
+        "ingredients": [
+            "one",
+            "two",
+            "three",
+            "four",
+            "five"
+        ],
+        "name_of_dish": "name",
+        "recipe": [
+            "1. aaaaaaaaaaaaa",
+            "2. bbbbbbbbbbbbb",
+            "3. ccccccccccccc"
+        ],
+        "type": "type"
     }
 ]

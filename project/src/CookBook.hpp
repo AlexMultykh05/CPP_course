@@ -1,3 +1,9 @@
+/**
+ * @file CookBook.hpp
+ * @author Alex Multykh
+ * @date 28.04.2024
+ */
+
 //
 // Created by Alex Multykh on 28.04.2024.
 //
@@ -14,8 +20,16 @@
 #include "Dish.hpp"
 #include "Constants.hpp"
 
+
+/**
+ * @class CookBook
+ * @brief Class representing a cookbook.
+ */
 class CookBook {
 private:
+    /**
+     * @brief Content of the cookbook.
+     */
     std::string content_;
 
 public:
@@ -24,6 +38,10 @@ public:
     static void printRecipe(const Dish &dish);
 
     static void printDish(const Dish &dish);
+
+    void findMatchingDishes(const std::vector<std::string> &inputIngredients, std::vector<Dish> &matchedDishes);
+
+    static void loadDishes(std::vector<Dish> &matchedDishes, int start, int end);
 
     bool suggestDish(const std::vector<std::string> &inputIngredients);
 

@@ -1,5 +1,18 @@
+/**
+ * @file main.cpp
+ * @author Alex Multykh
+ * @date 28.04.2024
+ */
+
+
 #include "CookBook.hpp"
 
+
+/**
+ * @brief Reads ingredients from the standard input.
+ *
+ * @return std::vector<std::string> Vector of ingredients.
+ */
 std::vector<std::string> readIngredients() {
     std::string line;
     std::getline(std::cin, line);
@@ -21,6 +34,12 @@ std::vector<std::string> readIngredients() {
     return ingredients;
 }
 
+
+/**
+ * @brief Prints all dishes from the cookbook.
+ *
+ * @param cookbook JSON object representing the cookbook.
+ */
 void printAllDishes(const nlohmann::json& cookbook) {
     int dishNum = 1;
     std::cout << EOL << "The cookbook contains the following dishes:" << std::endl;
@@ -31,14 +50,24 @@ void printAllDishes(const nlohmann::json& cookbook) {
     std::cout << std::endl;
 }
 
+
+/**
+ * @brief Checks if the cookbook is empty or not found.
+ */
 void checkIfEmptyCookBook() {
-    std::ifstream file("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
+    std::ifstream file(COOKBOOK_DB);
     if (!file || file.peek() == std::ifstream::traits_type::eof()) {
         std::cout << "The cookbook is empty or not found. Nothing to delete.\n";
         return;
     }
 }
 
+
+/**
+ * @brief Handles the recipe searching process.
+ *
+ * @param myCookBook Reference to the CookBook object.
+ */
 void recipeSearching(CookBook& myCookBook) {
     std::cout << ENTER_INGREDIENTS;
 
@@ -65,6 +94,12 @@ void recipeSearching(CookBook& myCookBook) {
     }
 }
 
+
+/**
+ * @brief Handles the dish creation process.
+ *
+ * @param myCookBook Reference to the CookBook object.
+ */
 void createDish(CookBook& myCookBook) {
     Dish newDish;
     std::cout << "Enter the name of the new dish: ";
@@ -74,14 +109,20 @@ void createDish(CookBook& myCookBook) {
     std::cout << "Enter the cooking time of the new dish (in minutes): ";
     std::cin >> newDish.cookingTime;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cout << "Enter the ingredients of the new dish: ";
+    std::cout << "Enter the ingredients of the new dish (separated by comma: ";
     newDish.ingredients = readIngredients();
-    std::cout << "Enter the recipe of the new dish: ";
+    std::cout << "Enter the recipe of the new dish (separated by comma: ";
     newDish.recipe = readIngredients();
 
     myCookBook.addDish(newDish);
 }
 
+
+/**
+ * @brief Handles the dish reading process.
+ *
+ * @param myCookBook Reference to the CookBook object.
+ */
 void readDish(CookBook& myCookBook) {
     checkIfEmptyCookBook();
 
@@ -95,6 +136,12 @@ void readDish(CookBook& myCookBook) {
     myCookBook.viewDish(dishName);
 }
 
+
+/**
+ * @brief Handles the dish updating process.
+ *
+ * @param myCookBook Reference to the CookBook object.
+ */
 void updateDish(CookBook& myCookBook) {
     checkIfEmptyCookBook();
 
@@ -111,15 +158,21 @@ void updateDish(CookBook& myCookBook) {
     std::getline(std::cin, updatedDish.type);
     std::cout << "Enter the new cooking time of the dish (in minutes): ";
     std::cin >> updatedDish.cookingTime;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // clear the input buffer
-    std::cout << "Enter the new ingredients of the dish: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "Enter the new ingredients of the dish (separated by comma): ";
     updatedDish.ingredients = readIngredients();
-    std::cout << "Enter the new recipe of the dish: ";
+    std::cout << "Enter the new recipe of the dish (separated by comma: ";
     updatedDish.recipe = readIngredients();
 
     myCookBook.editDish(dishName, updatedDish);
 }
 
+
+/**
+ * @brief Handles the dish deletion process.
+ *
+ * @param myCookBook Reference to the CookBook object.
+ */
 void deleteDish(CookBook& myCookBook) {
     checkIfEmptyCookBook();
 
@@ -132,6 +185,12 @@ void deleteDish(CookBook& myCookBook) {
     myCookBook.deleteDish(dishName);
 }
 
+
+/**
+ * @brief Handles the cookbook editing process.
+ *
+ * @param myCookBook Reference to the CookBook object.
+ */
 void cookBookEditing(CookBook& myCookBook) {
     std::cout << "'1' to create a dish\n'2' to read a dish\n'3' to update a dish\n'4' to delete a dish\nEnter your choice:";
     int editChoice;
@@ -159,8 +218,14 @@ void cookBookEditing(CookBook& myCookBook) {
     }
 }
 
+
+/**
+ * @brief Main function.
+ *
+ * @return int
+ */
 int main() {
-    CookBook myCookBook("/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json");
+    CookBook myCookBook(COOKBOOK_DB);
 
     while (true) {
         std::cout << "'1' to look up a recipe \n'2' to edit the cookbook\n'3' to view cookbook\n'4' to exit\nEnter your choice:";

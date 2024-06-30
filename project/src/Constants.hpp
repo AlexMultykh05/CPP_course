@@ -1,3 +1,9 @@
+/**
+ * @file Constants.hpp
+ * @author Alex Multykh
+ * @date 29.06.2024
+ */
+
 //
 // Created by Alex Multykh on 29.06.2024.
 //
@@ -5,6 +11,13 @@
 #ifndef PROJECT_CONSTANTS_HPP
 #define PROJECT_CONSTANTS_HPP
 
+
+/**
+ * @brief Constants of the project.
+ */
+
+
+constexpr char COOKBOOK_DB[] = "/Users/alexmultykh/Desktop/multykho/project/src/cookbook_db.json";
 constexpr char FAILED_OPEN_FILE[] = "Failed to open file.";
 constexpr char ENTER_NUM_OF_DISH[] = "Enter the number of the dish for the recipe or 'more' to load more dishes: ";
 constexpr char ENTER_INGREDIENTS[] = "Enter ingredients (separated by comma): ";
@@ -21,6 +34,7 @@ constexpr char ALPHABET[] = "alphabet";
 constexpr char TIME[] = "time";
 constexpr char HOUR_SPACES[] = " hour ";
 constexpr char HOURS_SPACE[] = " hours";
+constexpr char MORE[] = "more";
 constexpr char COLUMN[] = ": ";
 constexpr char DOT[] = ". ";
 constexpr char SEMI_COLUMN[] = "; ";
