@@ -23,32 +23,32 @@ The application uses the `nlohmann` library to parse JSON data.
 
 The application consists of the following modules:
 
-1. `main.cpp`: The main module of the application. This module contains the main 
-   function that is executed when the application is run. The main function 
+1. `main.cpp`: The main module of the application. This module contains the main
+   function that is executed when the application is run. The main function
    initializes the application and starts the main loop of the application.
 
 
-2. `CookBook.cpp` and `CookBook.hpp`: This module contains the implementation of the `CookBook` class. 
-   The `CookBook` class is responsible for managing the recipes in the Cookbook. 
-   The `CookBook` class provides methods for creating, reading, updating and deleting 
+2. `CookBook.cpp` and `CookBook.hpp`: This module contains the implementation of the `CookBook` class.
+   The `CookBook` class is responsible for managing the recipes in the Cookbook.
+   The `CookBook` class provides methods for creating, reading, updating and deleting
    recipes in the Cookbook as well as suggesting recipes based on the ingredients.
 
 
-3. `Dish.hpp`: This module contains the implementation of the `Dish` class. 
+3. `Dish.hpp`: This module contains the implementation of the `Dish` class.
    The `Dish` class represents a single dish in the Cookbook, which has the following attributes:
     1. `name`: The name of the dish.
-      2. `type`: The type of the dish, e.g. 'Dinner', 'Dessert', 'Appetizer'.
-      3. `cooking_time`: The single number time required to cook the dish (in minutes).
-      4. `formatted cooking_time`: The time required to cook the dish (in hours and minutes).
-      5. `ingredients`: The ingredients required to make the dish.
-      6. `resipe`: The recipe for making the dish.
+    2. `type`: The type of the dish, e.g. 'Dinner', 'Dessert', 'Appetizer'.
+    3. `cooking_time`: The single number time required to cook the dish (in minutes).
+    4. `formatted cooking_time`: The time required to cook the dish (in hours and minutes).
+    5. `ingredients`: The ingredients required to make the dish.
+    6. `resipe`: The recipe for making the dish.
 
 
-4. `Constants.hpp`: This module contains the definition of the constants used in the application, 
+4. `Constants.hpp`: This module contains the definition of the constants used in the application,
    such as the file paths for the recipe data and the Cookbook data.
 
 
-5. `Tests.md`: This module contains the test cases for the application. 
+5. `Tests.md`: This module contains the test cases for the application.
    The test cases are written in a markdown format and can be run using a command-line interface or an IDE that supports C++.
 
 
